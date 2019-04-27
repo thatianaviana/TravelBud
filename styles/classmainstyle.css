@@ -1,0 +1,30 @@
+.flight-header {
+    color: white;
+}
+
+.flight-info {
+    color: white;
+}
+
+#box {
+    width: 500px;
+    height: 200px;
+    margin: 0px auto;
+    border: 2px solid grey;
+    margin-top: 30px;
+    /* background-color: #f4d202; */
+    background: rgb(238, 223, 18, 0.3);
+}
+h2 {
+    text-align: center;
+}
+table {
+    margin: 0px auto;
+}
+button {
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 160px;
+
+}
