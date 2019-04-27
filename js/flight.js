@@ -4,18 +4,18 @@
 $("#buttons-view").on("click", "button",function() {
     var person = $(this).attr("data-name");
     
-    var baseURL = "https://api.flightstats.com/flex/schedules/rest/v1/json/flight";
+    var baseURL = "https://api.flightstats.com/flex/schedules/rest/v1/json/";
     var appId = "240766ef"
     var apiKey = "c171a1e862d6550fa4f0ae7d6dc00c5a";
-    var carrier 
-    var flightNumber
-    var year
-    var month
-    var day
+    var carrier = "aa";
+    var flightNumber = 100;
+    var year = 2019;
+    var month = May;
+    var day = 1;
 
     var searchTerm = $(this).text();
 
-    var queryURL = baseURL + carrier + flightNumber + year + month + day + "?appId=" + appId + "&appKey=" + appKey;
+    var queryURL = baseURL + carrier + flightNumber + year + month + day + "?appId=" + appId + "&appKey=" + apiKey;
 
 
     $("#contentArea").empty();
@@ -26,6 +26,7 @@ $("#buttons-view").on("click", "button",function() {
         })
         .done(function(response) {
             var results = response.data;
+            console.log(respons);
 
             for (var i = 0; i < results.length; i++) {
                 var imageDiv = $("<div class='item'>");
