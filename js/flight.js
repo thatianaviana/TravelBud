@@ -1,23 +1,37 @@
-
+  //  https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/AA/1659/arr/2019/4/27?appId=240766ef&appKey=c171a1e862d6550fa4f0ae7d6dc00c5a&utc=false
 // Set Up Variables
 
   var carrier = "";
   var flightNum = "";
   var date = "";
 
-  var baseURL = "https://api.flightstats.com/flex/flightstatus/v2/json/flight/status";
+  //  ttps://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/{airline}/{flightNumber}/arr/{year}/{month}/{day}?appId=240766ef&appKey=c171a1e862d6550fa4f0ae7d6dc00c5a&utc=false
+
+  var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/";
   var appId = "?appId=240766ef"
   var apiKey = "appKey=c171a1e862d6550fa4f0ae7d6dc00c5a";
  
-  var queryURL = baseURL + carrier + flightNum + "/arr/" + date + appId + apiKey;
+  jQuery.ajaxPrefilter(function (options) {
+    if (options.crossDomain && jQuery.support.cors) {
+        options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+    }
+  });
+
+  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + date + appId + apiKey;
 
   // Functions 
   function runQuery(flightStats, queryURL) {
+
       $.ajax({
           url: queryURL,
           method: "GET",
           dataType: "json",
+          xhrFields: {
+            withCredentials: true
+        },
+        
       })
+
       .done(function(flightData) {
           console.log(flightData);            
       });
@@ -50,24 +64,23 @@
 $(".find_button").click(function() {
     event.preventDefault();
 
-    var newURL = queryURLBase + "&q=" + flightInfo;
+    // var newURL = baseUrl + "&q=" + flightInfo;
 
     flightStats = $("#flightStats").val();
 
     // Get Airlinecode (carrier), Flight Number, and Date of Arrival
-    var carrier = $("#airline").val().trim();
-    var flightNum = $("#flightNumber").val().trim();
-    var date = $("#date").val().trim();
+    carrier = $("#airline").val().trim();
+    flightNum = $("#flightNumber").val().trim();
+    date = $("#date").val().trim();
       console.log("Airline: " + carrier);
       console.log("Flight Number: " + flightNum);
       console.log("Date: " + date);
       
+      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + date + appId + apiKey;
+
       runQuery(flightStats, newURL);
 
   });
-
-
-
 
 //Attach content to appropriate departure row.
 // var newRow = $("<tr>").append(
