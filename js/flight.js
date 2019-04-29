@@ -8,9 +8,9 @@
   //  https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/{airline}/{flightNumber}/arr/{year}/{month}/{day}?appId=240766ef&appKey=c171a1e862d6550fa4f0ae7d6dc00c5a&utc=false
   // https://api.flightstats.com/flex/schedules/rest/v1/json/flight/nw/1070/departing/2019/4/29?appId=240766ef&appKey=58e50827114a43dca4fe80587bcc8f37"
 
-  var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/";
+  var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/";
   var appId = "?appId=240766ef"
-  var apiKey = "appKey=58e50827114a43dca4fe80587bcc8f37";
+  var apiKey = "&appKey=58e50827114a43dca4fe80587bcc8f37";
  
   // jQuery.ajaxPrefilter(function (options) {
   //   if (options.crossDomain && jQuery.support.cors) {
@@ -18,15 +18,18 @@
   //   }
   // });
 
+  
+
   var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + date + appId + apiKey;
 
   // Functions 
-  function runQuery(flightStats, queryURL) {
 
+  function runQuery(flightStats, queryURL) {
+      //$.support.cors = true;
       $.ajax({
           url: queryURL,
           method: "GET",
-          dataType: "json",
+          dataType: "jsonp",
           xhrFields: {
             withCredentials: true
         },
