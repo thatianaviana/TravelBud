@@ -1,102 +1,91 @@
+ 
+// set up variables
+  var carrier = "";
+  var flightNum = "";
+  var date = "";
+
+  var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/";
+  var appId = "?appId=240766ef"
+  var apiKey = "&appKey=58e50827114a43dca4fe80587bcc8f37";
+ 
+  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + date + appId + apiKey;
+
+  // Functions 
+  function runQuery(flightStats, queryURL) {
+      //$.support.cors = true;
+      $.ajax({ url: queryURL, method: "GET", dataType: "jsonp", 
+          xhrFields: {withCredentials: true},
+      })
+      // .done runs if the data is retrieved successfully. 
+      .done(function(flightData) {
+                   
+      // Clear Flight Search from previous run
+      $('#flightSearch').empty();
 
 
-$(".find_button").on("click", "button",function() {
+      // Need to figure out how to loop through web service. 
 
-    var flight = $(this).attr("data-name");
-    var appId = "240766ef"
-    var apiKey = "c171a1e862d6550fa4f0ae7d6dc00c5a"
+      for (var i = 0; i < flightStats; i++) {
+        console.log(flightData.flightStatuses[i].flightNumber);
+
+      }
+
+      console.log(flightStats);
+      console.log(queryURL);
+      console.log(flightData);   
+  });
+
+}
+
+  //  Return these fields to the #flightSearch table
+// requestedFields: [ 
+//   "airportCode", 
+//   "scheduledTime", 
+//   "scheduledDate", 
+//   "actualDate", 
+//   "terminal",
+//   "gate",
+// ]
 
 
-    var queryURL = "https://api.flightstats.com/flex/schedules/rest/v1/json/" +
-    "appId=" + appId + "&api_key=" + apiKey + "?callback=myCallback";
-
-
-  // How to AJAX call on rest API? 
-
-    $.ajax({
-            url: queryURL,
-            method: "GET",
-            dataType: "jsonp",
-        })
-        .done(function(response) {
-            var results = response.data;
-            }
-        );
-});
-
-
+// on click this pulls the query from the flightstats api 
 $(".find_button").click(function() {
     event.preventDefault();
 
-    // Code in the logic for storing and retrieving the most recent user.
-    // Don't forget to provide initial data to your Firebase database.
-    var airline = $("#airline").val().trim();
-    var flightNumber = $("#flightNumber").val().trim();
-    var date = $("#date").val().trim();
-      console.log("Airline: " + airline);
-      console.log("Flight Number: " + flightNumber);
+    // var newURL = baseUrl + "&q=" + flightInfo;
+
+    flightStats = $("#flightStats").val();
+
+    // Get Airlinecode (carrier), Flight Number, and Date of Arrival
+    carrier = $("#airline").val().trim();
+    flightNum = $("#flightNumber").val().trim();
+    date = $("#date").val().trim();
+      console.log("Airline: " + carrier);
+      console.log("Flight Number: " + flightNum);
       console.log("Date: " + date);
+      
+      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + date + appId + apiKey;
 
-    // Local object for flight data
-    var newFlight = {
-      nameOfAirline: airline,
-      numOfAirline: flightNumber,
-      departureDate: date,
-  };
+      runQuery(flightStats, newURL);
 
-    var departureDetails = {
-        depature: Airport, 
-        departureDate: date, 
-        scheduleofDeparture: Time;
-        actualDeparture: ;
-        terminal: ;
-        gate: ;
-    }
+  });
 
+//Attach content to appropriate arrival row.
+// var newRow = $("<tr>").append(
+//   $("<td>").text(airportCode),
+//   $("<td>").text(scheduledTime),
+//   $("<td>").text(scheduledDate),
+//   $("<td>").text(actualDate),
+//   $("<td>").text(terminal),
+//   $("<td>").text(gate),
+// )
 
-// Departure Details 
-var newRow = $("<tr>").append(
-    $("<td>").text(departure),
-    $("<td>").text(departureDate),
-    $("<td>").text(scheduleOfDeparture),
-    $("<td>").text(actualDeparture),
-    $("<td>").text(terminal),
-    $("<td>").text(gate),
-);
-
-  $("#flightSearch").append(newRow);
-
-  $("#contentArea").prepend(imageDiv);
-
-
-// Arrival Details
-
-    $("#arrival").val("");
-    $("#arrivalDate").val("");
-    $("#scheduledArrival").val("");
-    $("#estimatedArrival").val("");
-    $("#gate").val("");
-
-
-  //   $.getJSON("http://localhost:8080/restws/json/product/get?callback=?",
-  //  function(data) {
-  //    alert(data);         
-  //  });
-
-  //   $.ajax({ 
-  //     type: "GET",
-  //     dataType: "jsonp",
-  //     url: "http://localhost:8080/restws/json/product/get",
-  //     success: function(data){        
-  //       alert(data);
-  //     }
-  //  });
+  // $("#flightSearch").append(newRow);
+  // $("#contentArea").prepend(imageDiv);
 
 
 
 
 
-
-
-
+  
 
