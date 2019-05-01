@@ -24,15 +24,15 @@
 
 
       // Need to figure out how to loop through web service. 
+        console.log(flightData.flightStatuses);
 
-      for (var i = 0; i < flightStats; i++) {
-        console.log(flightData.flightStatuses[i].flightNumber);
-
+      for (var i = 0; i < flightData.flightStatuses; i++) {
+        console.log(flightData.flightStatuses[i]``);
       }
 
-      console.log(flightStats);
-      console.log(queryURL);
-      console.log(flightData);   
+      // console.log(flightStats);
+      // console.log(queryURL);
+      // console.log(flightData);   
   });
 
 }
