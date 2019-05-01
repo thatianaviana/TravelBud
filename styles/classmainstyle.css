@@ -21,7 +21,7 @@ h2 {
 table {
     margin: 0px auto;
 }
-#searchButton {
+button {
     margin: 0px auto;
     text-align: center;
     margin-top: 20px;
