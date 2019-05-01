@@ -17,15 +17,16 @@
           xhrFields: {withCredentials: true},
       })
       // .done runs if the data is retrieved successfully. 
-      .done(function() {
-                   
+      .done(function(flightData) {
+               
       // Clear Flight Search from previous run
       $('#flightSearch').empty();
 
-      // Need to figure out how to loop through web service. 
-      for (var i = 0; i < flightStatus; i++) {
-        console.log(flightStatus[i].departureTerminal);
-        console.log(flightStatus[i].departureGate);
+      // var result = flightStats.getData();
+
+      //Need to figure out how to loop through web service. 
+      for (var i = 0; i < flightStats; i++) {
+        console.log(flightData.flightStatuses[i].carrierFsCode);
       }
 
       console.log(flightStats);
