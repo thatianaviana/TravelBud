@@ -18,6 +18,7 @@
       })
       // .done runs if the data is retrieved successfully. 
       .done(function(flightData) {
+<<<<<<< HEAD
                
       // Clear Flight Search from previous run
       $('#flightSearch').empty();
@@ -28,11 +29,24 @@
       for (var i = 0; i < flightStats; i++) {
         console.log(flightData.flightStatuses[i].carrierFsCode);
       }
+=======
+                   
+      // Clear Flight Search from previous run
+      $('#flightSearch').empty();
 
-      console.log(flightStats);
-      console.log(queryURL);
-      console.log(flightData);   
 
+      // Need to figure out how to loop through web service. 
+        console.log(flightData.flightStatuses);
+>>>>>>> a2fafac6bfd0988bb82f9189b1a33d7719203ba7
+
+      for (var i = 0; i < flightData.flightStatuses.length; i++) {
+        console.log(flightData.flightStatuses[i].arrivalDate.dateLocal);
+        console.log(flightData.flightStatuses[i].airportResources.arrivalGate);
+      }
+
+      // console.log(flightStats);
+      // console.log(queryURL);
+      // console.log(flightData);   
   });
 
 }
