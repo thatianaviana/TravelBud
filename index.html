@@ -16,6 +16,14 @@
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <link rel="stylesheet" href="styles/classmainstyle.css">
 
+<!-- packing list style sheet PCV -->
+<link rel="stylesheet" href="styles/packinglist_contact.css">
+
+<!-- Firebase reference PCV-->
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
+
+
 </head>
 <body>
 
@@ -28,8 +36,8 @@
 		<div class="home_background" style="background-image:url(images/home.jpg)"></div>
 		<div class="home_content">
 			<div class="home_content_inner">
-				<div class="home_text_large">TravelBud</div>
-				<div class="home_text_small">Discover the World!</div>
+				<div class="home_text_large text-center">TravelBud</div>
+				<div class="home_text_small">Comeback a Different Person!</div>
 			</div>
 		</div>
 	</div>
@@ -283,17 +291,39 @@
 	<!-- Special -->
 
 	<div class="special">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title text-center">
-						<h2>Packing Bud Goes here</h2>
-						<div></div>
-					</div>
-				</div>
+
+		<h1>Packing Bud!</h1>
+
+	 <form id="packingList">
+			<p>Click and drag to reporder, double click to cross an item off.</p>
+
+			<span class="packing-wrap">
+				<input type="checkbox" id="item1" checked/>
+				<label for="item1" class="listItem">
+					<i class= "fa fa-check"></i>
+					Socks
+				</label>
+				<span class="delete-item" title="remove">
+					<i class="fa fa-times-circle"></i>
+				</span>
+			</span>
+
+			<div id="add-packingItem">
+				<i id="addItem" class="fa fa-plus"></i>
+				Add an Item
+				<input type="text" name="newItem"/>
 			</div>
-		</div>
+		</form> 
 	
+		<!-- <form>
+				<span id="todo-item">To Do Item: <input id="to-do" type="text" ><input id="add-to-do" value="Add Item" type="submit"></span>
+			  </form>
+		  
+			  <hr>
+		  
+			  To-Do List -->
+		<!-- <div id="to-dos"></div> -->
+		  
 
 	<!-- Newsletter -->
 
@@ -304,13 +334,23 @@
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
 					<div class="newsletter_content">
-						<div class="newsletter_title text-center">Contact goes here</div>
+						<div class="newsletter_title text-center">Contact Us!</div>
 						<div class="newsletter_form_container">
-							<form action="#" id="newsletter_form" class="newsletter_form">
-								<div class="d-flex flex-md-row flex-column align-content-center justify-content-between">
-									<input type="email" id="newsletter_input" class="newsletter_input" placeholder="Your E-mail Address">
-									<button type="submit" id="newsletter_button" class="newsletter_button">Subscribe</button>
+							<form>
+								<div class="form-group">
+									<label for="name">Name:</label>
+									<input type="text" class="form-control" id="nameArea" placeholder="John Smith">
 								</div>
+								<div class="form-group">
+									<label for="emailInput">Email address:</label>
+									<input type="email" class="form-control" id="emailArea" placeholder="jsmith@example.com">
+								</div>
+								
+								<div class="form-group">
+									<label for="textArea">Comment:</label>
+									<textarea class="form-control" id="textArea" rows="3"></textarea>
+								</div>
+								<button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
 							</form>
 						</div>
 					</div>
@@ -404,5 +444,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="js/custom.js"></script>
 <!-- THIS IS OUR MAIN JS WHERE WILL ADD OUR CODE-->
 <script src="js/app.js"></script>
+
+<!-- PCV fire base link -->
+<script src="js/firebase.js"></script>
+
+
 </body>
 </html>
