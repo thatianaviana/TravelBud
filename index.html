@@ -18,6 +18,14 @@
 	<link rel="stylesheet" href="styles/classmainstyle.css">
 	<link rel="shortcut icon" href="favicon.ico">
 
+<!-- packing list style sheet PCV -->
+<link rel="stylesheet" href="styles/packinglist_contact.css">
+
+<!-- Firebase reference PCV-->
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
+
+
 </head>
 
 <body>
@@ -396,13 +404,64 @@
 		</div>
 		<!-- Special -->
 
-		<div class="special">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="section_title text-center">
-							<h2>Packing Bud Goes here</h2>
-							<div></div>
+	 <form id="packingList">
+			<p>Click and drag to reporder, double click to cross an item off.</p>
+
+			<span class="packing-wrap">
+				<input type="checkbox" id="item1" checked/>
+				<label for="item1" class="listItem">
+					<i class= "fa fa-check"></i>
+					Socks
+				</label>
+				<span class="delete-item" title="remove">
+					<i class="fa fa-times-circle"></i>
+				</span>
+			</span>
+
+			<div id="add-packingItem">
+				<i id="addItem" class="fa fa-plus"></i>
+				Add an Item
+				<input type="text" name="newItem"/>
+			</div>
+		</form> 
+	
+		<!-- <form>
+				<span id="todo-item">To Do Item: <input id="to-do" type="text" ><input id="add-to-do" value="Add Item" type="submit"></span>
+			  </form>
+		  
+			  <hr>
+		  
+			  To-Do List -->
+		<!-- <div id="to-dos"></div> -->
+		  
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<!-- Image by https://unsplash.com/@garciasaldana_ -->
+		<div class="newsletter_background" style="background-image:url(images/newsletter.jpg)"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="newsletter_content">
+						<div class="newsletter_title text-center">Contact Us!</div>
+						<div class="newsletter_form_container">
+							<form>
+								<div class="form-group">
+									<label for="name">Name:</label>
+									<input type="text" class="form-control" id="nameArea" placeholder="John Smith">
+								</div>
+								<div class="form-group">
+									<label for="emailInput">Email address:</label>
+									<input type="email" class="form-control" id="emailArea" placeholder="jsmith@example.com">
+								</div>
+								
+								<div class="form-group">
+									<label for="textArea">Comment:</label>
+									<textarea class="form-control" id="textArea" rows="3"></textarea>
+								</div>
+								<button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+							</form>
 						</div>
 					</div>
 				</div>
