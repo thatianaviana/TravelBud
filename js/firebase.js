@@ -1,28 +1,30 @@
     
     // Lists
     $(document).ready(
-        function(){
-            $('#addItem').click(
-                function(){
-                    var toAdd = $('input[name=newItem]').val();
-                     $('ol').append('<li>' + toAdd + '</li>');
-                });
+
+        $("#addItem").on("click", function(event))
+        // function(){
+        //     $('#addItem').click(
+        //         function(){
+        //             var toAdd = $('input[name=newItem]').val();
+        //              $('ol').append('<li>' + toAdd + '</li>');
+        //         });
            
-           $("input[name=newItem]").keyup(function(event){
-              if(event.keyCode == 13){
-                $("#addItem").click();
-              }         
-          });
+        //    $("input[name=newItem]").keyup(function(event){
+        //       if(event.keyCode == 13){
+        //         $("#addItem").click();
+        //       }         
+        //   });
           
-          $(document).on('dblclick','li', function(){
-            $(this).toggleClass('strike').fadeOut('slow');    
-          });
+        //   $(document).on('dblclick','li', function(){
+        //     $(this).toggleClass('strike').fadeOut('slow');    
+        //   });
           
-          $('input').focus(function() {
-            $(this).val('');
-          });
+        //   $('input').focus(function() {
+        //     $(this).val('');
+        //   });
           
-        //   $('ol').sortable();  
+        // //   $('ol').sortable();  
           
         }
     );
