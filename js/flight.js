@@ -16,12 +16,10 @@
       $.ajax({ url: queryURL, method: "GET", dataType: "jsonp", 
           xhrFields: {withCredentials: true},
       })
-      // .done runs if the data is retrieved successfully. 
       .done(function(flightData) {
                    
         $('#tbody').empty();
-      // Need to figure out how to loop through web service. 
-    
+      
       for (var i = 0; i < flightData.flightStatuses.length; i++) {
 
       if (flightData.flightStatuses[i] != "null") {
@@ -36,7 +34,6 @@
         // console.log(flightData.flightStatuses[i].airportResources.arrivalTerminal);
         // console.log(flightData.flightStatuses[i].airportResources.arrivalGate);
         // console.log(flightData.flightStatuses);   
-
 
       // Send to HTML Here: 
       var newRow = $("<tr>").append(
@@ -54,24 +51,15 @@
 
 };
      
-
 // on click this pulls the query from the flightstats api 
 $(".find_button").click(function() {
     event.preventDefault();
 
-    // var newURL = baseUrl + "&q=" + flightInfo;
-
-    flightStats = $("#flightStats").val();
-
-    
-    //date = moment("DD/MM/YYYY").format("YYYY/MM/DD");
-
     // Get Airlinecode (carrier), Flight Number, and Date of Arrival
+    flightStats = $("#flightStats").val();
     carrier = $("#airline").val().trim();
     flightNum = $("#flightNumber").val().trim();
     date = $("#date").val().trim();
-
-       // var dateQuery = input.replace(YYYY/MM/DD/, (MM).(DD).(YYYY)/);
 
       console.log("Airline: " + carrier);
       console.log("Flight Number: " + flightNum);
@@ -83,7 +71,6 @@ $(".find_button").click(function() {
 
   });
 
-  // Clear Flight Search from previous run
     
    
 
