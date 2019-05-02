@@ -3,12 +3,13 @@
   var carrier = "";
   var flightNum = "";
   var date = "";
+  newDate = format("YYYY/MM/DD");
 
   var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/";
   var appId = "?appId=240766ef"
   var apiKey = "&appKey=58e50827114a43dca4fe80587bcc8f37";
  
-  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + date + appId + apiKey;
+  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + newDate + "/" + appId + apiKey;
 
   // Functions 
   function runQuery(flightStats, queryURL) {
@@ -44,7 +45,6 @@
         $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalTerminal),
         $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalGate),
       )
-
       $("#tbody").append(newRow);
 
   }});
@@ -60,12 +60,13 @@ $(".find_button").click(function() {
     carrier = $("#airline").val().trim();
     flightNum = $("#flightNumber").val().trim();
     date = $("#date").val().trim();
-
+    newDate = moment(date).format("YYYY/MM/DD");
       console.log("Airline: " + carrier);
       console.log("Flight Number: " + flightNum);
       console.log("Date: " + date);
+      console.log("New Date: " + newDate)
       
-      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + date + appId + apiKey;
+      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + newDate + "/" + appId + apiKey;
 
       runQuery(flightStats, newURL);
 
