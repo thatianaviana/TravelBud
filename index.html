@@ -50,7 +50,7 @@
 		<div class="find">
 			<div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/find.jpg"
 				data-speed="0.8"></div>
-			<div class="container">
+			<div class="container text-light">
 				<div class="row">
 					<div class="col-12">
 						<div class="find_title text-center">Flight Tracker</div>
@@ -86,26 +86,20 @@
 							</form>
 						</div>
 					</div>
+					<br>
 					<div id="flightSearch">
-						<table>
-							<tbody>
+						<table class="table">
+							<thead>
 								<tr>
+									<th class="flight-header">Flight Number</th>
 									<th class="flight-header">Destination</th>
-									<th class="flight-header">Departure Date</th>
-									<th class="flight-header">Scheduled Departure</th>
-									<th class="flight-header">Actual Departure</th>
+									<th class="flight-header">Departure City</th>
+									<th class="flight-header">Departure Date and Time</th>
 									<th class="flight-header">Terminal</th>
 									<th class="flight-header">Gate</th>
 								</tr>
-								<tr>
-									<td class="flight-info">Los Angeles</td>
-									<td class="flight-info">01/23/2019</td>
-									<td class="flight-info">08:20am</td>
-									<td class="flight-info">08:35am</td>
-									<td class="flight-info">B</td>
-									<td class="flight-info">32</td>
-								</tr>
-							</tbody>
+							</thead>
+							<tbody id="tbody"></tbody>
 						</table>
 					</div>
 				</div>
@@ -559,6 +553,7 @@
 		<script src="plugins/parallax-js-master/parallax.min.js"></script>
 		<script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script src="js/custom.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
 		<!-- THIS IS OUR MAIN JS WHERE WILL ADD OUR CODE-->
 		<script src="js/app.js"></script>
 		<script src="js/translator.js"></script>
