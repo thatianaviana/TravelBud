@@ -16,6 +16,15 @@
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
 	<link rel="stylesheet" href="styles/classmainstyle.css">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- packing list style sheet PCV -->
+	<link rel="stylesheet" href="styles/packinglist_contact.css">
+
+
+	<!-- Firebase reference PCV-->
+	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
 
 </head>
 
@@ -27,68 +36,73 @@
 		<!-- Home -->
 
 		<div class="home">
-			<div class="home_background" style="background-image:url(images/home.jpg)"></div>
+			<div class="home_background" style="background-image:url(images/home1.jpg)"></div>
 			<div class="home_content">
 				<div class="home_content_inner">
-					<div class="home_text_large">TravelBud</div>
-					<div class="home_text_small">Discover the World!</div>
+					<div class="home_text_large" class="main-title">TravelBud</div>
+					<div class="home_text_small" class="title-add">Come Back a Different Person</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Find Form -->
+		<!-- Flight Status - Vlad-->
 
 		<div class="find">
-			<!-- Image by https://unsplash.com/@garciasaldana_ -->
-			<div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/find.jpg"
-				data-speed="0.8"></div>
-			<div class="container">
+			<div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/flight.jpg" data-speed="0.8"></div>
+			<div class="container text-light">
 				<div class="row">
 					<div class="col-12">
-						<div class="find_title text-center">Ultimate Travel Search</div>
+						<div class="find_title text-center">Flight Tracker</div>
 					</div>
 					<div class="col-12">
 						<div class="find_form_container">
-							<form action="#" id="find_form"
-								class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+							<form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
 								<div class="find_item">
-									<div>Destination:</div>
-									<input type="text" class="destination find_input" required="required"
-										placeholder="Keyword here">
+									<div>Airline</div>
+									<input type="text" id="airline" class="destination find_input" required="required" placeholder="Airline">
 								</div>
 								<div class="find_item">
-									<div>Adventure type:</div>
-									<select name="adventure" id="adventure" class="dropdown_item_select find_input">
-										<option>Categories</option>
-										<option>Categories</option>
-										<option>Categories</option>
-									</select>
+									<div>Flight Number</div>
+									<input type="text" id="flightNumber" class="destination find_input" required="required" placeholder="Flight #">
 								</div>
+								<!-- <div class="find_item">
+								<div>Date</div>
+								<select name="max_price" id="max_price" class="dropdown_item_select find_input">
+									<option>&nbsp;</option>
+									<option>Price</option>
+									<option>Price</option>
+								</select>
+							</div> -->
 								<div class="find_item">
-									<div>Min price</div>
-									<select name="min_price" id="min_price" class="dropdown_item_select find_input">
-										<option>&nbsp;</option>
-										<option>Price</option>
-										<option>Price</option>
-									</select>
-								</div>
-								<div class="find_item">
-									<div>Max price</div>
-									<select name="max_price" id="max_price" class="dropdown_item_select find_input">
-										<option>&nbsp;</option>
-										<option>Price</option>
-										<option>Price</option>
-									</select>
+									<div>Date</div>
+									<input type="text" id="date" class="destination find_input" required="required" placeholder="YYYY/MM/DD">
 								</div>
 								<button class="button find_button">Find</button>
 							</form>
 						</div>
 					</div>
+					<br>
+					<div id="flightSearch">
+						<table class="table">
+							<thead>
+								<tr>
+									<th class="flight-header">Flight Number</th>
+									<th class="flight-header">Destination</th>
+									<th class="flight-header">Departure City</th>
+									<th class="flight-header">Departure Date and Time</th>
+									<th class="flight-header">Terminal</th>
+									<th class="flight-header">Gate</th>
+								</tr>
+							</thead>
+							<tbody id="tbody"></tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Top Destinations -->
+
+		<!--  Site Menu -->
 
 		<div class="top">
 			<div class="container">
@@ -102,13 +116,12 @@
 				</div>
 				<div class="row top_content">
 
-					<div class="col-lg-4 col-md-6 top_col">
+					<div class="col-lg-3 col-md-3 top_col">
 
-						<!-- Top Destination Item -->
+						<!-- Currency -->
 						<div class="top_item">
-							<a href="#">
-								<div class="top_item_image"><img src="images/top_1.jpg"
-										alt="https://unsplash.com/@sgabriel"></div>
+							<a href="#currencyBox">
+								<div class="top_item_image"><img id="circleimg" src="images/money.jpg" alt="currency-image"></div>
 								<div class="top_item_content">
 									<div class="top_item_text">Currency</div>
 								</div>
@@ -116,13 +129,12 @@
 						</div>
 					</div>
 
-					<div class="col-lg-4 col-md-6 top_col">
+					<div class="col-lg-3 col-md-3 top_col">
 
-						<!-- Top Destination Item -->
+						<!-- Translator -->
 						<div class="top_item">
-							<a href="#">
-								<div class="top_item_image"><img src="images/top_2.jpg"
-										alt="https://unsplash.com/@jenspeter"></div>
+							<a href="#translator">
+								<div class="top_item_image"><img id="circleimg" src="images/translate.jpg" alt="translator-image"></div>
 								<div class="top_item_content">
 									<div class="top_item_text">Translator</div>
 								</div>
@@ -130,58 +142,126 @@
 						</div>
 					</div>
 
-					<div class="col-lg-4 col-md-6 top_col">
+					<div class="col-lg-3 col-md-3 top_col">
 
-						<!-- Top Destination Item -->
+						<!-- Weather -->
 						<div class="top_item">
-							<a href="#">
-								<div class="top_item_image"><img src="images/top_3.jpg"
-										alt="https://unsplash.com/@anikindimitry"></div>
+							<a href="#weatherTracker">
+								<div class="top_item_image"><img id="circleimg" src="images/weathertag.jpg" alt="weather-image"></div>
 								<div class="top_item_content">
-									<div class="top_item_text">Packing Bud</div>
+									<div class="top_item_text">Weather</div>
 								</div>
 							</a>
 						</div>
 					</div>
 
-					<!-- <div class="col-lg-3 col-md-6 top_col"> -->
+					<div class="col-lg-3 col-md-3 top_col">
 
-					<!-- Top Destination Item -->
-					<!-- <div class="top_item">
-						<a href="#">
-							<div class="top_item_image"><img src="images/top_4.jpg" alt="https://unsplash.com/@hellolightbulb"></div>
-							<div class="top_item_content">
-								<div class="top_item_price">From $890</div>
-								<div class="top_item_text">Santorini, Greece</div>
-							</div>
-						</a>	
-					</div> -->
-					<!-- </div> -->
+						<!-- PackingBud List -->
+						<div class="top_item">
+							<a href="#">
+								<div class="top_item_image"><img id="circleimg" src="images/packing.jpg" alt="packing-list"></div>
+								<div class="top_item_content">
+									<div class="top_item_text">Packing Buddy</div>
+								</div>
+							</a>
+						</div>
+					</div>
 
 				</div>
 			</div>
 		</div>
 
-		<!-- Last -->
-
-		<!-- Video -->
-
+		<!-- Currency Converter - Thatiana-->
 		<div class="video_section d-flex flex-column align-items-center justify-content-center">
-			<!-- Image by https://unsplash.com/@peecho -->
-			<div class="video_background parallax-window" data-parallax="scroll" data-image-src="images/video.jpg"
-				data-speed="0.8"></div>
-			<div class="video_content">
-				<div class="video_title">Currency Part goes here</div>
-				<div class="video_subtitle"></div>
-				<div class="video_play">
 
-				</div>
+			<div class="video_background parallax-window" data-parallax="scroll" data-image-src="images/converter.jpg">
 			</div>
+			<div id="currencyBox">
+				<h2>Currency Converter</h2>
+				<table>
+					<tr>
+						<td><input id="from-amount" type="text" size="15" value="1" /></td>
+						<td>
+							<select id="from">
+								<option value="DZD">Algerian Dinar (DZD)</option>
+								<option value="XCD">East Caribbean Dollar (XCD)</option>
+								<option value="ARS">Argentine Peso (ARS)</option>
+								<option value="AMD">Armenian Dram (AMD)</option>
+								<option value="BZD">Belize Dollar (BZD)</option>
+								<option value="BOB">Boliviano (BOB)</option>
+								<option value="LYD">Cayman Islands Dollar (KYD)</option>
+								<option value="NZD">New Zealand Dollar (NZD)</option>
+								<option value="EGP">Egyptian Pound (EGP)</option>
+								<option value="FJD">Fiji Dollar (FJD)</option>
+								<option value="JMD">Jamaican Dollar (JMD)</option>
+								<option value="LBP">Lebanese Pound (LBP)</option>
+								<option value="USD" selected>US Dollar (USD)</option>
+								<option value="ARS">Argentine Peso (ARS)</option>
+								<option value="AWG">Aruban Florin (AWG)</option>
+								<option value="EUR">Austria Euro (EUR)</option>
+								<option value="EUR">Euro (EUR)</option>
+								<option value="AUD">Australian Dollar (AUD)</option>
+								<option value="BRL">Brazilian Real (BRL)</option>
+								<option value="CAD">Canadian Dollar (CAD)</option>
+								<option value="CLP">Chilean Peso (CLP)</option>
+								<option value="COP">Colombian Peso (COP)</option>
+								<option value="CUP">Cuban Peso (CUP)</option>
+								<option value="DKK">Danish Krone (DKK)</option>
+								<option value="EUR">Euro (EUR)</option>
+								<option value="HKD">Hong Kong Dollar (HKD)</option>
+								<option value="ILS">New Israeli Sheqel (ILS)</option>
+								<option value="MVR">Rufiyaa (MVR)</option>
+								<option value="MXN">Mexican Peso (MXN)</option>
+
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><input id="to-amount" type="text" size="15" disabled /></td>
+						<td>
+							<select id="to">
+								<option value="DZD">Algerian Dinar (DZD)</option>
+								<option value="XCD">East Caribbean Dollar (XCD)</option>
+								<option value="ARS">Argentine Peso (ARS)</option>
+								<option value="AMD">Armenian Dram (AMD)</option>
+								<option value="BZD">Belize Dollar (BZD)</option>
+								<option value="BOB">Boliviano (BOB)</option>
+								<option value="LYD">Cayman Islands Dollar (KYD)</option>
+								<option value="NZD">New Zealand Dollar (NZD)</option>
+								<option value="EGP">Egyptian Pound (EGP)</option>
+								<option value="FJD">Fiji Dollar (FJD)</option>
+								<option value="JMD">Jamaican Dollar (JMD)</option>
+								<option value="LBP">Lebanese Pound (LBP)</option>
+								<option value="USD">US Dollar (USD)</option>
+								<option value="ARS">Argentine Peso (ARS)</option>
+								<option value="AWG">Aruban Florin (AWG)</option>
+								<option value="EUR">Austria Euro (EUR)</option>
+								<option value="EUR">Euro (EUR)</option>
+								<option value="AUD">Australian Dollar (AUD)</option>
+								<option value="BRL">Brazilian Real (BRL)</option>
+								<option value="CAD">Canadian Dollar (CAD)</option>
+								<option value="CLP">Chilean Peso (CLP)</option>
+								<option value="COP">Colombian Peso (COP)</option>
+								<option value="CUP">Cuban Peso (CUP)</option>
+								<option value="DKK">Danish Krone (DKK)</option>
+								<option value="EUR">Euro (EUR)</option>
+								<option value="HKD">Hong Kong Dollar (HKD)</option>
+								<option value="ILS">New Israeli Sheqel (ILS)</option>
+								<option value="MVR">Rufiyaa (MVR)</option>
+								<option value="MXN">Mexican Peso (MXN)</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<button class="btn btn-info" id="searchButton">Convert Your Money</button>
+			</div>
+
 		</div>
 
-		<!-- Popular -->
+		<!-- Translator - Gladys -->
 
-		<div class="popular">
+		<div class="popular" id="translator">
 			<div class="container">
 				<div class="row">
 					<div class="col">
@@ -193,243 +273,232 @@
 				</div>
 				<div class="row">
 					<div class="col">
-						<div
-							class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_1.jpg" alt="image by Egzon Bytyqi">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">Turkey</div>
-								</div>
-							</a>	
-						</div> -->
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_2.jpg" alt="https://unsplash.com/@michael75">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">Hawai</div>
-								</div>
-							</a>	
-						</div> -->
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_3.jpg" alt="https://unsplash.com/@sapegin">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">Ireland</div>
-								</div>
-							</a>	
-						</div> -->
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_4.jpg" alt="https://unsplash.com/@kensuarez">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">Thailand</div>
-								</div>
-							</a>
-						</div> -->
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_5.jpg" alt="https://unsplash.com/@noahbasle">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">Croatia</div>
-								</div>
-							</a>
-						</div> -->
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_6.jpg" alt="https://unsplash.com/@seb">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">Bali</div>
-								</div>
-							</a>
-						</div> -->
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_7.jpg" alt="https://unsplash.com/@nevenkrcmarek">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">France</div>
-								</div>
-							</a>	
-						</div> -->
-
-							<!-- Popular Item -->
-							<!-- <div class="popular_item">
-							<a href="offers.html">
-								<img src="images/popular_8.jpg" alt="https://unsplash.com/@bergeryap87">
-								<div class="popular_item_content">
-									<div class="popular_item_price">From $890</div>
-									<div class="popular_item_title">Vietnam</div>
-								</div>
-							</a>
-						</div> -->
-
+						<div class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- Weather Update - Thatiana-->
+		<div id="weatherTracker">
+
+			<div class="video_section d-flex flex-column align-items-center justify-content-center">
+
+
+				<div class="video_background parallax-window" data-parallax="scroll" data-image-src="images/weather.jpg">
+					<div class="video_title" class="weather-title">Weather Update</div>
+				</div>
+				<div class="weather-info">
+					<div class="weather-input"><input class="form" id="weatherApp" type="text" placeholder="City">
+						<div class="button-weather"> <button class="btn btn-info" id="weatherButton">Weather
+								Update</button></div>
+					</div>
+
+					<div class="container" id="weather-box">
+
+						<div class="col-xs-12">
+							<div class="city"></div>
+							<div class="temp"></div>
+							<div class="temp-high"></div>
+							<div class="temp-low"></div>
+							<div id="icon"><img id="weatherIcon" src=""></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Packing List - Paula -->
 
 		<!-- Special -->
+		<div id="packingBud" class="container">
+			<h1> Packing Bud</h1>
+			<form id="packingList">
+				<h1>My Packing List</h1>
+				<input type="button" id="create_pdf" value="Generate PDF">
+				<span id="packing-item">Items: <input id="to-bring" type="text">
+					<input id="add-to-list" value="add item" type="submit"></span>
+				<div id="items"></div>
+				<!-- <input type="button" id="create_pdf" value="Generate PDF"> -->
 
-		<div class="special">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="section_title text-center">
-							<h2>Packing Bud Goes here</h2>
-							<div></div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Newsletter -->
-
-			<div class="newsletter">
-				<!-- Image by https://unsplash.com/@garciasaldana_ -->
-				<div class="newsletter_background" style="background-image:url(images/newsletter.jpg)"></div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-10 offset-lg-1">
-							<div class="newsletter_content">
-								<div class="newsletter_title text-center">Contact goes here</div>
-								<div class="newsletter_form_container">
-									<form action="#" id="newsletter_form" class="newsletter_form">
-										<div
-											class="d-flex flex-md-row flex-column align-content-center justify-content-between">
-											<input type="email" id="newsletter_input" class="newsletter_input"
-												placeholder="Your E-mail Address">
-											<button type="submit" id="newsletter_button"
-												class="newsletter_button">Subscribe</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Footer -->
-
-			<footer class="footer">
-				<div class="container">
-					<div class="row">
-
-						<!-- Footer Column -->
-						<div class="col-lg-4 footer_col">
-							<div class="footer_about">
-								<!-- Logo -->
-								<div class="logo_container">
-									<div class="logo">
-										<div>TravelBud</div>
-										<div>by pan!c at the deezcode</div>
-										<div class="logo_image"><img src="images/logo.png" alt=""></div>
-									</div>
-								</div>
-								<div class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel eleifend
-									quis, tempus rut rum metus. Pellentesque ultricies enim eu quam fermentum hendrerit.
-								</div>
-								<div class="copyright">
-									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-									Copyright &copy;
-									<script>document.write(new Date().getFullYear());</script> All rights reserved |
-									This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-										href="https://colorlib.com" target="_blank">Colorlib</a>
-									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								</div>
-							</div>
-						</div>
-
-						<!-- Footer Column -->
-						<div class="col-lg-4 footer_col">
-							<div class="footer_latest">
-								<div class="footer_title">Latest News</div>
-								<div class="footer_latest_content">
-
-									<!-- Footer Latest Post -->
-									<div class="footer_latest_item">
-										<div class="footer_latest_image"><img src="images/latest_1.jpg"
-												alt="https://unsplash.com/@peecho"></div>
-										<div class="footer_latest_item_content">
-											<div class="footer_latest_item_title"><a href="news.html">Brazil Summer</a>
-											</div>
-											<div class="footer_latest_item_date">Jan 09, 2018</div>
-										</div>
-									</div>
-
-									<!-- Footer Latest Post -->
-									<div class="footer_latest_item">
-										<div class="footer_latest_image"><img src="images/latest_2.jpg"
-												alt="https://unsplash.com/@sanfrancisco"></div>
-										<div class="footer_latest_item_content">
-											<div class="footer_latest_item_title"><a href="news.html">A perfect
-													vacation</a></div>
-											<div class="footer_latest_item_date">Jan 09, 2018</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-						<!-- Footer Column -->
-						<div class="col-lg-4 footer_col">
-							<div class="tags footer_tags">
-								<div class="footer_title">Tags</div>
-								<ul
-									class="tags_content d-flex flex-row flex-wrap align-items-start justify-content-start">
-									<li class="tag"><a href="#">travel</a></li>
-									<li class="tag"><a href="#">summer</a></li>
-									<li class="tag"><a href="#">cruise</a></li>
-									<li class="tag"><a href="#">beach</a></li>
-									<li class="tag"><a href="#">offer</a></li>
-									<li class="tag"><a href="#">vacation</a></li>
-									<li class="tag"><a href="#">trip</a></li>
-									<li class="tag"><a href="#">city break</a></li>
-									<li class="tag"><a href="#">adventure</a></li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</footer>
+			</form>
 		</div>
 
-		<script src="js/jquery-3.2.1.min.js"></script>
-		<script src="styles/bootstrap4/popper.js"></script>
-		<script src="styles/bootstrap4/bootstrap.min.js"></script>
-		<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-		<script src="plugins/easing/easing.js"></script>
-		<script src="plugins/parallax-js-master/parallax.min.js"></script>
-		<script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script src="js/custom.js"></script>
-		<!-- THIS IS OUR MAIN JS WHERE WILL ADD OUR CODE-->
-		<script src="js/app.js"></script>
+
+		<!-- Newsletter -->
+
+		<div class="newsletter">
+			<!-- Image by https://unsplash.com/@garciasaldana_ -->
+			<div class="newsletter_background" style="background-image:url(images/newsletter.jpg)"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<div class="newsletter_content">
+							<div class="newsletter_title text-center">Contact Us!</div>
+							<div class="newsletter_form_container">
+								<form>
+									<div class="form-group">
+										<label for="name">Name:</label>
+										<input type="text" class="form-control" id="nameArea" placeholder="John Smith">
+									</div>
+									<div class="form-group">
+										<label for="emailInput">Email address:</label>
+										<input type="email" class="form-control" id="emailArea" placeholder="jsmith@example.com">
+									</div>
+
+									<div class="form-group">
+										<label for="textArea">Comment:</label>
+										<textarea class="form-control" id="textArea" rows="3"></textarea>
+									</div>
+									<button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<!-- Image by https://unsplash.com/@garciasaldana_ -->
+		<div class="newsletter_background" style="background-image:url(images/newsletter.jpg)"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="newsletter_content">
+						<div class="newsletter_title text-center">Contact Us!</div>
+						<div class="newsletter_form_container">
+							<form>
+								<div class="form-group">
+									<label for="name">Name:</label>
+									<input type="text" class="form-control" id="nameArea" placeholder="John Smith">
+								</div>
+								<div class="form-group">
+									<label for="emailInput">Email address:</label>
+									<input type="email" class="form-control" id="emailArea" placeholder="jsmith@example.com">
+								</div>
+
+								<div class="form-group">
+									<label for="textArea">Comment:</label>
+									<textarea class="form-control" id="textArea" rows="3"></textarea>
+								</div>
+								<button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<!-- Footer Column -->
+				<div class="col-lg-4 footer_col">
+					<div class="footer_about">
+						<!-- Logo -->
+						<div class="logo_container">
+							<div class="logo">
+								<div>TravelBud</div>
+								<div>by pan!c at the deezcode</div>
+								<div class="logo_image"><img src="images/logo.png" alt=""></div>
+							</div>
+						</div>
+						<div class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit.
+							Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel
+							eleifend
+							quis, tempus rut rum metus. Pellentesque ultricies enim eu quam fermentum
+							hendrerit.
+						</div>
+						<div class="copyright">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved |
+							This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+							<a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</div>
+					</div>
+				</div>
+
+				<!-- Footer Column -->
+				<div class="col-lg-4 footer_col">
+					<div class="footer_latest">
+						<div class="footer_title">Latest News</div>
+						<div class="footer_latest_content">
+
+							<!-- Footer Latest Post -->
+							<div class="footer_latest_item">
+								<div class="footer_latest_image"><img src="images/latest_1.jpg" alt="https://unsplash.com/@peecho"></div>
+								<div class="footer_latest_item_content">
+									<div class="footer_latest_item_title"><a href="news.html">Brazil
+											Summer</a>
+									</div>
+									<div class="footer_latest_item_date">Jan 09, 2018</div>
+								</div>
+							</div>
+
+							<!-- Footer Latest Post -->
+							<div class="footer_latest_item">
+								<div class="footer_latest_image"><img src="images/latest_2.jpg" alt="https://unsplash.com/@sanfrancisco"></div>
+								<div class="footer_latest_item_content">
+									<div class="footer_latest_item_title"><a href="news.html">A perfect
+											vacation</a></div>
+									<div class="footer_latest_item_date">Jan 09, 2018</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Footer Column -->
+				<div class="col-lg-4 footer_col">
+					<div class="tags footer_tags">
+						<div class="footer_title">Tags</div>
+						<ul class="tags_content d-flex flex-row flex-wrap align-items-start justify-content-start">
+							<li class="tag"><a href="#">travel</a></li>
+							<li class="tag"><a href="#">summer</a></li>
+							<li class="tag"><a href="#">cruise</a></li>
+							<li class="tag"><a href="#">beach</a></li>
+							<li class="tag"><a href="#">offer</a></li>
+							<li class="tag"><a href="#">vacation</a></li>
+							<li class="tag"><a href="#">trip</a></li>
+							<li class="tag"><a href="#">city break</a></li>
+							<li class="tag"><a href="#">adventure</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="styles/bootstrap4/popper.js"></script>
+	<script src="styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+	<script src="plugins/easing/easing.js"></script>
+	<script src="plugins/parallax-js-master/parallax.min.js"></script>
+	<script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+	<!-- THIS IS OUR MAIN JS WHERE WILL ADD OUR CODE-->
+	<script src="js/app.js"></script>
+	<script src="js/translator.js"></script>
+	<script src="js/flight.js"></script>
+	<script src="js/currency.js"></script>
+	<script src="js/weather.js"></script>
+	<script src="js/firebase.js"></script>
+
+
 </body>
 
 </html>
