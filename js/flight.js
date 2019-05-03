@@ -3,13 +3,13 @@
   var carrier = "";
   var flightNum = "";
   var date = "";
-  newDate = format("YYYY/MM/DD");
+  var newDate = (date.substring(date.length - 4, date.length) + "/" + date.substring(0, 2) + date.substring(2, 4));
 
   var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/";
   var appId = "?appId=240766ef"
   var apiKey = "&appKey=58e50827114a43dca4fe80587bcc8f37";
  
-  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + newDate + "/" + appId + apiKey;
+  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + newDate + appId + apiKey;
 
   // Functions 
   function runQuery(flightStats, queryURL) {
@@ -23,10 +23,10 @@
       
       for (var i = 0; i < flightData.flightStatuses.length; i++) {
 
-      if (flightData.flightStatuses[i] != "null") {
-        
+      if (flightData.flightStatuses[i] != "ERR_ABORTED 404") {
+          //  Console.log("No Flight Information Found")
       }
-        var currentTime = moment(flightData.flightStatuses[i].departureDate.dateLocal).format('MMMM Do YYYY, h:mm:ss a');
+        var currentTime = moment(flightData.flightStatuses[i].departureDate.dateLocal).format('MMMM Do YYYY, h:mm a');
 
         // console.log(flightData.flightStatuses[i].flightNumber);
         // console.log(flightData.flightStatuses[i].departureAirportFsCode);
@@ -60,13 +60,15 @@ $(".find_button").click(function() {
     carrier = $("#airline").val().trim();
     flightNum = $("#flightNumber").val().trim();
     date = $("#date").val().trim();
-    newDate = moment(date).format("YYYY/MM/DD");
+
+    newDate = (date.substring(date.length - 4, date.length) + "/" + date.substring(0, 2) + date.substring(2, 4));
+
       console.log("Airline: " + carrier);
       console.log("Flight Number: " + flightNum);
       console.log("Date: " + date);
       console.log("New Date: " + newDate)
       
-      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + newDate + "/" + appId + apiKey;
+      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + newDate + appId + apiKey;
 
       runQuery(flightStats, newURL);
 
