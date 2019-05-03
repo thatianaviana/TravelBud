@@ -13,7 +13,7 @@
     /* border: 2px solid grey; */
     margin-top: 30px;
 
-    background: rgba(209, 212, 143, 0.4);
+    /* background: rgba(209, 212, 143, 0.4); */
      /* rgb(238, 223, 18, 0.3); */
 }
 h2 {
@@ -36,6 +36,26 @@ button {
     background-color: #bebfb8;
 
 }
+#from-amount {
+    border-radius: 10%;
+    padding-left: 3px;
+    height: 25px;
+    width: 100px;
+
+    
+}
+#to-amount {
+    padding-left: 3px;
+    border-radius: 0;
+    height: 25px;
+    width: 100px;
+  
+   
+}
+#to {
+    padding-right: 20px;
+}
+
 
 #circleimg {
 
@@ -55,5 +75,68 @@ button {
     margin-top: 20px;
     margin-left: 160px;
 
+}
+
+.weather {
+    width: 500px;
+    height: 200px;
+    margin: 0px auto;
+    /* border: 2px solid grey; */
+    margin-top: 30px;
+
+  
+}
+
+#weatherApp {
+    align-content: center;
+    margin-top: 20px;
+    margin-left: 157px;
+    height: 30px;
+}
+#weatherButton {
+    margin-left: 155px;
+    margin-top: 10px;
+
+}
+#weatherIcon {
+  
+}
+
+
+#weather-box {
+    width: 500px;
+    height: 200px;
+    margin: 0px auto;
+    /* border: 2px solid grey; */
+    margin-top: 30px;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+    /* background: rgba(209, 212, 143, 0.4); */
+     /* rgb(238, 223, 18, 0.3); */
+}
+.city {
+    font-weight: bolder;
+    text-align: center;
+    font-display: 'Montserrat', sans-serif;
+    font-size: 10px;
+}
+.weather-header {
+  color: white;
+  font-weight: bold;
+   
+}
+
+#weatherTracker{
+    
+}
+
+.video_title {
+    color: white;
+    font-weight: bolder;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 20px;
 }
 
