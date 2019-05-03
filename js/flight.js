@@ -3,12 +3,13 @@
   var carrier = "";
   var flightNum = "";
   var date = "";
+  var newDate = (date.substring(date.length - 4, date.length) + "/" + date.substring(0, 2) + date.substring(2, 4));
 
   var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/";
   var appId = "?appId=240766ef"
   var apiKey = "&appKey=58e50827114a43dca4fe80587bcc8f37";
  
-  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + date + appId + apiKey;
+  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + newDate + appId + apiKey;
 
   // Functions 
   function runQuery(flightStats, queryURL) {
@@ -16,72 +17,65 @@
       $.ajax({ url: queryURL, method: "GET", dataType: "jsonp", 
           xhrFields: {withCredentials: true},
       })
-      // .done runs if the data is retrieved successfully. 
       .done(function(flightData) {
                    
-      // Clear Flight Search from previous run
-      $('#flightSearch').empty();
+        $('#tbody').empty();
+      
+      for (var i = 0; i < flightData.flightStatuses.length; i++) {
 
-
-      // Need to figure out how to loop through web service. 
-        console.log(flightData.flightStatuses);
-
-      for (var i = 0; i < flightData.flightStatuses; i++) {
-        console.log(flightData.flightStatuses[i]``);
+      if (flightData.flightStatuses[i] != "ERR_ABORTED 404") {
+          //  Console.log("No Flight Information Found")
       }
+        var currentTime = moment(flightData.flightStatuses[i].departureDate.dateLocal).format('MMMM Do YYYY, h:mm a');
 
-      // console.log(flightStats);
-      // console.log(queryURL);
-      // console.log(flightData);   
-  });
+        // console.log(flightData.flightStatuses[i].flightNumber);
+        // console.log(flightData.flightStatuses[i].departureAirportFsCode);
+        // console.log(flightData.flightStatuses[i].arrivalAirportFsCode);
+        // console.log(flightData.flightStatuses[i].departureDate.dateLocal);
+        // console.log(flightData.flightStatuses[i].airportResources.arrivalTerminal);
+        // console.log(flightData.flightStatuses[i].airportResources.arrivalGate);
+        // console.log(flightData.flightStatuses);   
 
-}
+      // Send to HTML Here: 
+      var newRow = $("<tr>").append(
+        $("<td>").text(flightData.flightStatuses[i].flightNumber),
+        $("<td>").text(flightData.flightStatuses[i].departureAirportFsCode),
+        $("<td>").text(flightData.flightStatuses[i].arrivalAirportFsCode),
+        $("<td>").text(currentTime),
+        $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalTerminal),
+        $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalGate),
+      )
+      $("#tbody").append(newRow);
 
-  //  Return these fields to the #flightSearch table
-// requestedFields: [ 
-//   "airportCode", 
-//   "scheduledTime", 
-//   "scheduledDate", 
-//   "actualDate", 
-//   "terminal",
-//   "gate",
-// ]
+  }});
 
-
+};
+     
 // on click this pulls the query from the flightstats api 
 $(".find_button").click(function() {
     event.preventDefault();
 
-    // var newURL = baseUrl + "&q=" + flightInfo;
-
-    flightStats = $("#flightStats").val();
-
     // Get Airlinecode (carrier), Flight Number, and Date of Arrival
+    flightStats = $("#flightStats").val();
     carrier = $("#airline").val().trim();
     flightNum = $("#flightNumber").val().trim();
     date = $("#date").val().trim();
+
+    newDate = (date.substring(date.length - 4, date.length) + "/" + date.substring(0, 2) + date.substring(2, 4));
+
       console.log("Airline: " + carrier);
       console.log("Flight Number: " + flightNum);
       console.log("Date: " + date);
+      console.log("New Date: " + newDate)
       
-      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + date + appId + apiKey;
+      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + newDate + appId + apiKey;
 
       runQuery(flightStats, newURL);
 
   });
 
-//Attach content to appropriate arrival row.
-// var newRow = $("<tr>").append(
-//   $("<td>").text(airportCode),
-//   $("<td>").text(scheduledTime),
-//   $("<td>").text(scheduledDate),
-//   $("<td>").text(actualDate),
-//   $("<td>").text(terminal),
-//   $("<td>").text(gate),
-// )
-
-  // $("#flightSearch").append(newRow);
-  // $("#contentArea").prepend(imageDiv);
+    
+   
 
 
 
