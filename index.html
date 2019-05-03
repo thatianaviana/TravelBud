@@ -21,9 +21,9 @@
 <!-- packing list style sheet PCV -->
 <link rel="stylesheet" href="styles/packinglist_contact.css">
 
+
 <!-- Firebase reference PCV-->
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-
 
 
 </head>
@@ -406,28 +406,19 @@
 	
 
 		<!-- Special -->
-	<div class="container">
+	<div id="packingBud" class="container">
+		<h1> Packing Bud</h1>
 	 	<form id="packingList">
-			<p>Click and drag to reporder, double click to cross an item off.</p>
+			 <h1>My Packing List</h1>
+			 <input type="button" id="create_pdf" value="Generate PDF">
+			<span id= "packing-item">Items: <input id="to-bring" type="text">
+			<input id="add-to-list" value="add item" type="submit"></span>
+			<div id="items"></div>	
+			<!-- <input type="button" id="create_pdf" value="Generate PDF"> -->
 
-			<span class="packing-wrap">
-				<input type="checkbox" id="item1" checked/>
-				<label for="item1" class="listItem">
-					<i class= "fa fa-check"></i>
-					Socks
-				</label>
-				<span class="delete-item" title="remove">
-					<i class="fa fa-times-circle"></i>
-				</span>
-			</span>
-
-			<div id="add-packingItem">
-				<i id="addItem" class="fa fa-plus"></i>
-				Add an Item
-				<input type="text" name="newItem"/>
-			</div>
 		</form> 
-	</div>		  
+	</div>	
+
 
 	<!-- Newsletter -->
 
@@ -566,6 +557,7 @@
 		<script src="js/currency.js"></script>
 		<script src="js/weather.js"></script>
 		<script src="js/firebase.js"></script>
+
 
 </body>
 
