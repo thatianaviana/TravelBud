@@ -58,7 +58,7 @@
 					
 					<div class="col-12">
 						<div class="find_form_container">
-							<form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+							<form id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
 								<div class="find_item">
 									<div>Airline</div>
 									<input type="text" id="airline" class="destination find_input" required="required" placeholder="Airline">
@@ -77,7 +77,7 @@
 							</div> -->
 								<div class="find_item">
 									<div>Date</div>
-									<input type="text" id="date" class="destination find_input" required="required" placeholder="YYYY/MM/DD">
+									<input type="text" id="date" class="destination find_input" required="required" placeholder="MM/DD/YYYY">
 								</div>
 								<button class="button find_button">Find</button>
 							</form>
@@ -93,12 +93,12 @@
 						<table class="table" id="flightTable">
 							<thead>
 								<tr>
-									<th class="flight-header">Flight Number</th>
-									<th class="flight-header">Destination</th>
-									<th class="flight-header">Departure City</th>
-									<th class="flight-header">Departure Date and Time</th>
-									<th class="flight-header">Terminal</th>
-									<th class="flight-header">Gate</th>
+									<th>Flight Number</th>
+									<th>Destination</th>
+									<th>Departure City</th>
+									<th>Departure Date and Time</th>
+									<th>Terminal</th>
+									<th>Gate</th>
 								</tr>
 							</thead>
 							<tbody id="tbody"></tbody>

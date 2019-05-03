@@ -145,3 +145,6 @@ button {
     padding-top: 20px;
 }
 
+.thead {
+    border-radius: 50%;
+}
