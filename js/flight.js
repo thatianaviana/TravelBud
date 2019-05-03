@@ -1,102 +1,85 @@
+ 
+// set up variables
+  var carrier = "";
+  var flightNum = "";
+  var date = "";
+  var newDate = (date.substring(date.length - 4, date.length) + "/" + date.substring(0, 2) + date.substring(2, 4));
 
+  var baseURL = "https://api.flightstats.com/flex/flightstatus/rest/v2/jsonp/flight/status/";
+  var appId = "?appId=240766ef"
+  var apiKey = "&appKey=58e50827114a43dca4fe80587bcc8f37";
+ 
+  var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + newDate + appId + apiKey;
 
-$(".find_button").on("click", "button",function() {
+  // Functions 
+  function runQuery(flightStats, queryURL) {
+      //$.support.cors = true;
+      $.ajax({ url: queryURL, method: "GET", dataType: "jsonp", 
+          xhrFields: {withCredentials: true},
+      })
+      .done(function(flightData) {
+                   
+        $('#tbody').empty();
+      
+      for (var i = 0; i < flightData.flightStatuses.length; i++) {
 
-    var flight = $(this).attr("data-name");
-    var appId = "240766ef"
-    var apiKey = "c171a1e862d6550fa4f0ae7d6dc00c5a"
+      if (flightData.flightStatuses[i] != "ERR_ABORTED 404") {
+          //  Console.log("No Flight Information Found")
+      }
+        var currentTime = moment(flightData.flightStatuses[i].departureDate.dateLocal).format('MMMM Do YYYY, h:mm a');
 
+        // console.log(flightData.flightStatuses[i].flightNumber);
+        // console.log(flightData.flightStatuses[i].departureAirportFsCode);
+        // console.log(flightData.flightStatuses[i].arrivalAirportFsCode);
+        // console.log(flightData.flightStatuses[i].departureDate.dateLocal);
+        // console.log(flightData.flightStatuses[i].airportResources.arrivalTerminal);
+        // console.log(flightData.flightStatuses[i].airportResources.arrivalGate);
+        // console.log(flightData.flightStatuses);   
 
-    var queryURL = "https://api.flightstats.com/flex/schedules/rest/v1/json/" +
-    "appId=" + appId + "&api_key=" + apiKey + "?callback=myCallback";
+      // Send to HTML Here: 
+      var newRow = $("<tr>").append(
+        $("<td>").text(flightData.flightStatuses[i].flightNumber),
+        $("<td>").text(flightData.flightStatuses[i].departureAirportFsCode),
+        $("<td>").text(flightData.flightStatuses[i].arrivalAirportFsCode),
+        $("<td>").text(currentTime),
+        $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalTerminal),
+        $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalGate),
+      )
+      $("#tbody").append(newRow);
 
+  }});
 
-  // How to AJAX call on rest API? 
-
-    $.ajax({
-            url: queryURL,
-            method: "GET",
-            dataType: "jsonp",
-        })
-        .done(function(response) {
-            var results = response.data;
-            }
-        );
-});
-
-
+};
+     
+// on click this pulls the query from the flightstats api 
 $(".find_button").click(function() {
     event.preventDefault();
 
-    // Code in the logic for storing and retrieving the most recent user.
-    // Don't forget to provide initial data to your Firebase database.
-    var airline = $("#airline").val().trim();
-    var flightNumber = $("#flightNumber").val().trim();
-    var date = $("#date").val().trim();
-      console.log("Airline: " + airline);
-      console.log("Flight Number: " + flightNumber);
+    // Get Airlinecode (carrier), Flight Number, and Date of Arrival
+    flightStats = $("#flightStats").val();
+    carrier = $("#airline").val().trim();
+    flightNum = $("#flightNumber").val().trim();
+    date = $("#date").val().trim();
+
+    newDate = (date.substring(date.length - 4, date.length) + "/" + date.substring(0, 2) + date.substring(2, 4));
+
+      console.log("Airline: " + carrier);
+      console.log("Flight Number: " + flightNum);
       console.log("Date: " + date);
+      console.log("New Date: " + newDate)
+      
+      var newURL = baseURL + carrier + '/' + flightNum + "/arr/" + newDate + appId + apiKey;
 
-    // Local object for flight data
-    var newFlight = {
-      nameOfAirline: airline,
-      numOfAirline: flightNumber,
-      departureDate: date,
-  };
+      runQuery(flightStats, newURL);
 
-    var departureDetails = {
-        depature: Airport, 
-        departureDate: date, 
-        scheduleofDeparture: Time;
-        actualDeparture: ;
-        terminal: ;
-        gate: ;
-    }
+  });
 
-
-// Departure Details 
-var newRow = $("<tr>").append(
-    $("<td>").text(departure),
-    $("<td>").text(departureDate),
-    $("<td>").text(scheduleOfDeparture),
-    $("<td>").text(actualDeparture),
-    $("<td>").text(terminal),
-    $("<td>").text(gate),
-);
-
-  $("#flightSearch").append(newRow);
-
-  $("#contentArea").prepend(imageDiv);
-
-
-// Arrival Details
-
-    $("#arrival").val("");
-    $("#arrivalDate").val("");
-    $("#scheduledArrival").val("");
-    $("#estimatedArrival").val("");
-    $("#gate").val("");
-
-
-  //   $.getJSON("http://localhost:8080/restws/json/product/get?callback=?",
-  //  function(data) {
-  //    alert(data);         
-  //  });
-
-  //   $.ajax({ 
-  //     type: "GET",
-  //     dataType: "jsonp",
-  //     url: "http://localhost:8080/restws/json/product/get",
-  //     success: function(data){        
-  //       alert(data);
-  //     }
-  //  });
+    
+   
 
 
 
 
 
-
-
-
+  
 

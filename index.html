@@ -50,7 +50,7 @@
 		<div class="find">
 			<div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/flight.jpg"
 				data-speed="0.8"></div>
-			<div class="container">
+			<div class="container text-light">
 				<div class="row">
 					<div class="col-12">
 						<div class="find_title text-center">Flight Tracker</div>
@@ -61,12 +61,12 @@
 								class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
 								<div class="find_item">
 									<div>Airline</div>
-									<input type="text" class="destination find_input" required="required"
+									<input type="text" id="airline" class="destination find_input" required="required"
 										placeholder="Airline">
 								</div>
 								<div class="find_item">
 									<div>Flight Number</div>
-									<input type="text" class="destination find_input" required="required"
+									<input type="text" id="flightNumber" class="destination find_input" required="required"
 										placeholder="Flight #">
 								</div>
 								<!-- <div class="find_item">
@@ -79,33 +79,27 @@
 							</div> -->
 								<div class="find_item">
 									<div>Date</div>
-									<input type="text" class="destination find_input" required="required"
+									<input type="text" id="date" class="destination find_input" required="required"
 										placeholder="YYYY/MM/DD">
 								</div>
 								<button class="button find_button">Find</button>
 							</form>
 						</div>
 					</div>
+					<br>
 					<div id="flightSearch">
-						<table>
-							<tbody>
+						<table class="table">
+							<thead>
 								<tr>
+									<th class="flight-header">Flight Number</th>
 									<th class="flight-header">Destination</th>
-									<th class="flight-header">Departure Date</th>
-									<th class="flight-header">Scheduled Departure</th>
-									<th class="flight-header">Actual Departure</th>
+									<th class="flight-header">Departure City</th>
+									<th class="flight-header">Departure Date and Time</th>
 									<th class="flight-header">Terminal</th>
 									<th class="flight-header">Gate</th>
 								</tr>
-								<tr>
-									<td class="flight-info">Los Angeles</td>
-									<td class="flight-info">01/23/2019</td>
-									<td class="flight-info">08:20am</td>
-									<td class="flight-info">08:35am</td>
-									<td class="flight-info">B</td>
-									<td class="flight-info">32</td>
-								</tr>
-							</tbody>
+							</thead>
+							<tbody id="tbody"></tbody>
 						</table>
 					</div>
 				</div>
@@ -348,17 +342,43 @@
 				Add an Item
 				<input type="text" name="newItem" />
 			</div>
-		</form>
+		</form> 
+	</div>		  
 
-		<!-- <form>
-				<span id="todo-item">To Do Item: <input id="to-do" type="text" ><input id="add-to-do" value="Add Item" type="submit"></span>
-			  </form>
-		  
-			  <hr>
-		  
-			  To-Do List -->
-		<!-- <div id="to-dos"></div> -->
+	<!-- Newsletter -->
 
+	<div class="newsletter">
+		<!-- Image by https://unsplash.com/@garciasaldana_ -->
+		<div class="newsletter_background" style="background-image:url(images/newsletter.jpg)"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="newsletter_content">
+						<div class="newsletter_title text-center">Contact Us!</div>
+						<div class="newsletter_form_container">
+							<form>
+								<div class="form-group">
+									<label for="name">Name:</label>
+									<input type="text" class="form-control" id="nameArea" placeholder="John Smith">
+								</div>
+								<div class="form-group">
+									<label for="emailInput">Email address:</label>
+									<input type="email" class="form-control" id="emailArea" placeholder="jsmith@example.com">
+								</div>
+								
+								<div class="form-group">
+									<label for="textArea">Comment:</label>
+									<textarea class="form-control" id="textArea" rows="3"></textarea>
+								</div>
+								<button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 		<!-- Newsletter -->
 
@@ -493,6 +513,7 @@
 		<script src="plugins/parallax-js-master/parallax.min.js"></script>
 		<script src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script src="js/custom.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
 		<!-- THIS IS OUR MAIN JS WHERE WILL ADD OUR CODE-->
 		<script src="js/app.js"></script>
 		<script src="js/translator.js"></script>
