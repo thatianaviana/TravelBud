@@ -23,9 +23,6 @@
       
       for (var i = 0; i < flightData.flightStatuses.length; i++) {
 
-      if (flightData.flightStatuses[i] != "ERR_ABORTED 404") {
-          //  Console.log("No Flight Information Found")
-      }
         var currentTime = moment(flightData.flightStatuses[i].departureDate.dateLocal).format('MMMM Do YYYY, h:mm a');
 
         // console.log(flightData.flightStatuses[i].flightNumber);
@@ -46,8 +43,13 @@
         $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalGate),
       )
       $("#tbody").append(newRow);
-
+    
   }});
+
+    //Deferred Fail Object 
+    // .fail(function() {
+    //   alert( "No Flight Information" );
+    //   });
 
 };
      
