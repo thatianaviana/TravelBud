@@ -25,7 +25,6 @@
 	<!-- Firebase reference PCV-->
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 
-
 </head>
 
 <body>
@@ -58,57 +57,63 @@
 					</div>
 
 					<div class="col-12">
+
 						<div class="find_form_container">
-							<form action="#" id="find_form"
+
+							<form id="find_form"
 								class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+
 								<div class="find_item">
 									<div>Airline</div>
 									<input type="text" id="airline" class="destination find_input" required="required"
-										placeholder="Airline">
+										placeholder="Airline Code">
 								</div>
+
 								<div class="find_item">
 									<div>Flight Number</div>
 									<input type="text" id="flightNumber" class="destination find_input"
 										required="required" placeholder="Flight #">
 								</div>
-								<!-- <div class="find_item">
-								<div>Date</div>
-								<select name="max_price" id="max_price" class="dropdown_item_select find_input">
-									<option>&nbsp;</option>
-									<option>Price</option>
-									<option>Price</option>
-								</select>
-							</div> -->
+
 								<div class="find_item">
 									<div>Date</div>
 									<input type="text" id="date" class="destination find_input" required="required"
-										placeholder="YYYY/MM/DD">
+										placeholder="MM/DD/YYYY">
 								</div>
+
 								<button class="button find_button">Find</button>
+
 							</form>
 						</div>
+
 					</div>
 
 				</div>
 
+				<!--#flightTable Section-->
 				<div class="row p-3">
 
-					<div class="col-md-12">
+					<div class="col-sm-12">
+
 						<div id="flightSearch">
-							<table class="table" id="flightTable">
-								<thead>
+
+							<table class="table-responsive-lg" id="flightTable">
+
+								<thead class="tableSpecs">
 									<tr>
-										<th class="flight-header">Flight Number</th>
-										<th class="flight-header">Destination</th>
-										<th class="flight-header">Departure City</th>
-										<th class="flight-header">Departure Date and Time</th>
-										<th class="flight-header">Terminal</th>
-										<th class="flight-header">Gate</th>
+										<th>Flight Number</th>
+										<th>Destination</th>
+										<th>Departure City</th>
+										<th>Departure Time</th>
+										<th>Terminal</th>
+										<th>Gate</th>
 									</tr>
 								</thead>
+
 								<tbody id="tbody"></tbody>
 							</table>
 						</div>
+
 					</div>
 
 				</div>
@@ -116,7 +121,7 @@
 
 			</div>
 		</div>
-
+		<!-- End of Flight Tracker Section -->
 
 		<!--  Site Menu -->
 
@@ -371,11 +376,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<div
-					class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
-				</div>
+	</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div
+				class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
 			</div>
 		</div>
 	</div>

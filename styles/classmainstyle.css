@@ -19,9 +19,6 @@
 h2 {
     text-align: center;
 }
-table {
-    margin: 0px auto;
-}
 
 button {
     /* margin: 0px auto; */
@@ -78,9 +75,6 @@ button {
 
 }
 
-.table {
-    border: none;
-}
 
 .weather {
     width: 500px;
@@ -162,3 +156,22 @@ button {
     height: 175px;
     margin: auto;
 }
+/* flight Section Styles */
+
+.find_item:nth-child(3) {
+    width: 13%;
+}
+
+.table-responsive-lg {
+    font-size: 14px; 
+    /* font-family: 'Montserrat', sans-serif;  */
+    width: 100%;
+    border-bottom: solid;
+    border-width: 1px;
+    padding: 3px; 
+    font-family: 'Montserrat', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
