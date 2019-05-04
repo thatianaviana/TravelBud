@@ -609,9 +609,15 @@
 
 @media only screen and (max-width: 400px)
 {
+<<<<<<< HEAD
+	
+}
+
+=======
 	.table-responsive-md {
 		height: 40px; 
 		/* line-height: 36px; */
 		font-size: 10px; 
 	}
 }
+>>>>>>> master

@@ -15,19 +15,20 @@ $("#weatherButton").on("click", function () {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(queryURL);
-        console.log(response);
-        console.log(response.name);
-        console.log(response.main.temp);
+        // console.log(queryURL);
+        // console.log(response);
+        // console.log(response.name);
+        // console.log(response.main.temp);
         // Create CODE HERE to transfer content to HTML
         $(".city").html("<h1 class='weather-header'>" + response.name + " Current Weather</h1>");
         // $(".city").append(response.name);
         var iconcode = response.weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-        $(".temp").html("Current Temperature: " + response.main.temp + "&#176");
-        $(".temp-high").html("High: " + response.main.temp_max + "&#176");
-        $(".temp-low").html("Low: " + response.main.temp_min + "&#176");
+        $(".temp").html("Temperature: " + Math.round(response.main.temp) + "&#176");
+        $(".temp-high").html("High: " + Math.round(response.main.temp_max) + "&#176");
+        $(".temp-low").html("Low: " + Math.round(response.main.temp_min) + "&#176");
         $('#weatherIcon').attr('src', iconurl);
+
  
 
 
