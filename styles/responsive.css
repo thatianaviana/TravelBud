@@ -434,6 +434,13 @@
 		height: 40px;
 		line-height: 36px;
 	}
+
+	.table-responsive-lg {
+		height: 40px; 
+		/* line-height: 36px; */
+		font-size: 10px; 
+	}
+
 	.find_button
 	{
 		height: 40px;
@@ -574,6 +581,8 @@
 @media only screen and (max-width: 539px)
 {
 	
+	
+
 }
 
 /************
@@ -600,5 +609,9 @@
 
 @media only screen and (max-width: 400px)
 {
-	
+	.table-responsive-md {
+		height: 40px; 
+		/* line-height: 36px; */
+		font-size: 10px; 
+	}
 }
