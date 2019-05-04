@@ -144,4 +144,21 @@ button {
     text-align: center;
     padding-top: 20px;
 }
+/* This code is for the positioning and style of the translate button */
 
+#return {
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 515px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+/* This code is for the layout of the translator text boxes */
+#text-box1, #text-box2 {
+    color: black;
+    width: 600px;
+    height: 175px;
+    margin: auto;
+}
