@@ -581,9 +581,9 @@
 @media only screen and (max-width: 539px)
 {
 	.table-responsive-sm {
-		height: 40px; 
+		height: 20px; 
 		/* line-height: 36px; */
-		font-size: 10px; 
+		font-size: 8px; 
 	}
 }
 
@@ -593,7 +593,11 @@
 
 @media only screen and (max-width: 480px)
 {
-	
+	.table-responsive-sm {
+		height: 20px; 
+		/* line-height: 36px; */
+		font-size: 8px; 
+	}
 }
 
 /************
@@ -611,9 +615,5 @@
 
 @media only screen and (max-width: 400px)
 {
-	.table-responsive-sm {
-		height: 40px; 
-		/* line-height: 36px; */
-		font-size: 10px; 
-	}
+	
 }
