@@ -580,9 +580,11 @@
 
 @media only screen and (max-width: 539px)
 {
-	
-	
-
+	.table-responsive-sm {
+		height: 40px; 
+		/* line-height: 36px; */
+		font-size: 10px; 
+	}
 }
 
 /************
@@ -609,7 +611,7 @@
 
 @media only screen and (max-width: 400px)
 {
-	.table-responsive-md {
+	.table-responsive-sm {
 		height: 40px; 
 		/* line-height: 36px; */
 		font-size: 10px; 
