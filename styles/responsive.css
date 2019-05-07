@@ -593,7 +593,7 @@
 
 @media only screen and (max-width: 480px)
 {
-	.table-responsive-sm {
+	.table-fixed {
 		height: 20px; 
 		/* line-height: 36px; */
 		font-size: 8px; 
