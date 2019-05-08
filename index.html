@@ -5,12 +5,13 @@
 	<title>TravelBud</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Destino project">
+	<meta name="description" content="TravelBud">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 	<link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
@@ -26,7 +27,6 @@
 	<!-- Firebase reference PCV-->
 	<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 
-
 </head>
 
 <body>
@@ -41,78 +41,94 @@
 			<div class="home_content">
 				<div class="home_content_inner">
 					<div class="home_text_large" class="main-title">TravelBud</div>
-					<div class="home_text_small" class="title-add">Come Back a Different Person</div>
+					<div class="home_text_small" class="title-add">One Place Stop for Travelers</div>
 				</div>
+				<a href="#" class="fa fa-facebook" style="font-size:48px"></a>
+				<a href="#" class="fa fa-twitter" style="font-size:48px"></a>
+				<a href="#" class="fa fa-instagram" style="font-size:48px"></a>
 			</div>
 		</div>
 
 		<!-- Flight Status - Vlad-->
 
 		<div class="find">
-			<div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/flight.jpg" data-speed="0.8"></div>
+			<div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/flight1.jpg"
+				data-speed="0.8"></div>
 			<div class="container text-light">
 
 				<div class="row">
 					<div class="col-12">
-						<div class="find_title text-center">Flight Tracker</div>
+						<div class="find_title text-center"></div>
+						<h2>Flight Tracker</h2>
 					</div>
-					
+
 					<div class="col-12">
+
 						<div class="find_form_container">
-							<form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+
+							<form id="find_form"
+								class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+
 								<div class="find_item">
 									<div>Airline</div>
-									<input type="text" id="airline" class="destination find_input" required="required" placeholder="Airline">
+									<input type="text" id="airline" class="destination find_input" required="required"
+										placeholder="Airline Code">
 								</div>
+
 								<div class="find_item">
 									<div>Flight Number</div>
-									<input type="text" id="flightNumber" class="destination find_input" required="required" placeholder="Flight #">
+									<input type="text" id="flightNumber" class="destination find_input"
+										required="required" placeholder="Flight #">
 								</div>
-								<!-- <div class="find_item">
-								<div>Date</div>
-								<select name="max_price" id="max_price" class="dropdown_item_select find_input">
-									<option>&nbsp;</option>
-									<option>Price</option>
-									<option>Price</option>
-								</select>
-							</div> -->
+
 								<div class="find_item">
 									<div>Date</div>
-									<input type="text" id="date" class="destination find_input" required="required" placeholder="YYYY/MM/DD">
+									<input type="text" id="date" class="destination find_input" required="required"
+										placeholder="MM/DD/YYYY">
 								</div>
+
 								<button class="button find_button">Find</button>
+
 							</form>
 						</div>
+
 					</div>
-			
+
 				</div>
 
+				<!--#flightTable Section-->
 				<div class="row p-3">
 
-				<div class="col-md-12">
-					<div id="flightSearch">
-						<table class="table" id="flightTable">
-							<thead>
-								<tr>
-									<th class="flight-header">Flight Number</th>
-									<th class="flight-header">Destination</th>
-									<th class="flight-header">Departure City</th>
-									<th class="flight-header">Departure Date and Time</th>
-									<th class="flight-header">Terminal</th>
-									<th class="flight-header">Gate</th>
-								</tr>
-							</thead>
-							<tbody id="tbody"></tbody>
-						</table>
+					<div class="col-sm-12">
+
+						<div id="flightSearch">
+
+							<table class="table-fixed" id="flightTable">
+
+								<thead class="tableSpecs">
+									<tr>
+										<th>Flight Number</th>
+										<th>Departure City</th>
+										<th>Destination</th>
+										<th>Departure Time</th>
+										<th>Arrival Time</th>
+										<th>Terminal</th>
+										<th>Gate</th>
+									</tr>
+								</thead>
+
+								<tbody id="tbody"></tbody>
+							</table>
+						</div>
+
 					</div>
-				</div>
 
 				</div>
 
-		
+
 			</div>
 		</div>
-
+		<!-- End of Flight Tracker Section -->
 
 		<!--  Site Menu -->
 
@@ -133,10 +149,10 @@
 						<!-- Currency -->
 						<div class="top_item">
 							<a href="#currencyBox">
-								<div class="top_item_image"><img id="circleimg" src="images/money.jpg" alt="currency-image"></div>
-								<div class="top_item_content">
-									<div class="top_item_text">Currency</div>
-								</div>
+								<div class="top_item_image"><img class="circleimg" src="images/money.jpg"
+										alt="currency-image"></div>
+								<div class="top_item_content"></div>
+								<div class="top_item_text">Currency</div>
 							</a>
 						</div>
 					</div>
@@ -146,10 +162,10 @@
 						<!-- Translator -->
 						<div class="top_item">
 							<a href="#translator">
-								<div class="top_item_image"><img id="circleimg" src="images/translate.jpg" alt="translator-image"></div>
-								<div class="top_item_content">
-									<div class="top_item_text">Translator</div>
-								</div>
+								<div class="top_item_image"><img class="circleimg" src="images/translate.jpg"
+										alt="translator-image"></div>
+								<div class="top_item_content"></div>
+								<div class="top_item_text">Translator</div>
 							</a>
 						</div>
 					</div>
@@ -159,10 +175,10 @@
 						<!-- Weather -->
 						<div class="top_item">
 							<a href="#weatherTracker">
-								<div class="top_item_image"><img id="circleimg" src="images/weathertag.jpg" alt="weather-image"></div>
-								<div class="top_item_content">
-									<div class="top_item_text">Weather</div>
-								</div>
+								<div class="top_item_image"><img class="circleimg" src="images/weathertag.jpg"
+										alt="weather-image"></div>
+								<div class="top_item_content"></div>
+								<div class="top_item_text">Weather</div>
 							</a>
 						</div>
 					</div>
@@ -171,12 +187,11 @@
 
 						<!-- PackingBud List -->
 						<div class="top_item">
-							<a href="#packingBud">
-								<div class="top_item_image"><img id="circleimg" src="images/packing.jpg"
+							<a href="#">
+								<div class="top_item_image"><img class="circleimg" src="images/packing.jpg"
 										alt="packing-list"></div>
-								<div class="top_item_content">
-									<div class="top_item_text">Packing Buddy</div>
-								</div>
+								<div class="top_item_content"></div>
+								<div class="top_item_text">Packing Bud</div>
 							</a>
 						</div>
 					</div>
@@ -190,9 +205,10 @@
 
 			<div class="video_background parallax-window" data-parallax="scroll" data-image-src="images/converter.jpg">
 			</div>
+
 			<div id="currencyBox">
 				<h2>Currency Converter</h2>
-				<table>
+				<table id="currencyTable">
 					<tr>
 						<td><input id="from-amount" type="text" size="15" value="1" /></td>
 						<td>
@@ -267,7 +283,7 @@
 						</td>
 					</tr>
 				</table>
-				<button class="btn btn-info" id="searchButton">Convert Your Money</button>
+				<button class="btn btn-warning" id="searchButton">Convert Your Money</button>
 			</div>
 
 		</div>
@@ -275,16 +291,16 @@
 		<!-- Translator - Gladys -->
 
 		<div class="popular" id="translator">
+
 			<div class="container">
 				<div class="row">
-					<div class="col">
+					<div class="col-md-12">
 						<div class="section_title text-center">
-							<h2>Translator Goes here</h2>
 							<h2>Translator Bud</h2>
 
 							<form id="input-text">
 								<div class="form-group">
-									<label for="text-area1">Master Language:</label>
+									<label for="text-area1">Original Language:</label>
 									<select id="master-lang">
 										<option value="en">English</option>
 										<option value="ar">Arabic</option>
@@ -317,60 +333,63 @@
 					</div>
 
 					</form>
-					<br>
+					<div class="col-md-12">
+						<div class="section_title text-center">
+							<form id="output-text">
+								<div class="form-group">
+									<label for="text-area2">Translated Language:</label>
 
-					<form id="output-text">
-						<div class="form-group">
-							<label for="text-area2">Target Language:</label>
+									<select id="target-lang">
+										<option value="en">English</option>
+										<option value="ar">Arabic</option>
+										<option value="ca">Catalan</option>
+										<option value="zh">Chinese</option>
+										<option value="da">Danish</option>
+										<option value="fr">French</option>
+										<option value="ga">Galician</option>
+										<option value="de">German</option>
+										<option value="el">Greek</option>
+										<option value="he">Hebrew</option>
+										<option value="hu">Hungarian</option>
+										<option value="id">Indonesian</option>
+										<option value="ga">Irish</option>
+										<option value="it">Italian</option>
+										<option value="ja">Japanese</option>
+										<option value="ko">Korean</option>
+										<option value="la">Latin</option>
+										<option value="pl">Polish</option>
+										<option value="pt">Portuguese</option>
+										<option value="ru">Russian</option>
+										<option value="es">Spanish</option>
+										<option value="vi">Vietnamese</option>
+										<option value="cy">Welsh</option>
+									</select>
 
-							<select id="target-lang">
-								<option value="en">English</option>
-								<option value="ar">Arabic</option>
-								<option value="ca">Catalan</option>
-								<option value="zh">Chinese</option>
-								<option value="da">Danish</option>
-								<option value="fr">French</option>
-								<option value="ga">Galician</option>
-								<option value="de">German</option>
-								<option value="el">Greek</option>
-								<option value="he">Hebrew</option>
-								<option value="hu">Hungarian</option>
-								<option value="id">Indonesian</option>
-								<option value="ga">Irish</option>
-								<option value="it">Italian</option>
-								<option value="ja">Japanese</option>
-								<option value="ko">Korean</option>
-								<option value="la">Latin</option>
-								<option value="pl">Polish</option>
-								<option value="pt">Portuguese</option>
-								<option value="ru">Russian</option>
-								<option value="es">Spanish</option>
-								<option value="vi">Vietnamese</option>
-								<option value="cy">Welsh</option>
-							</select>
+								</div>
 
 						</div>
+						<textarea class="form-control" id="text-box2" rows="3"></textarea>
+					</div>
+
+					</form>
+
+					<br>
+
+					<div>
+						<button type="button" class="btn btn-warning" id="return">Translate!</button>
+					</div>
 
 				</div>
-				<textarea class="form-control" id="text-box2" rows="3"></textarea>
-			</div>
-
-			</form>
-
-			<br>
-
-			<div>
-				<button class="btn btn-secondary" type="button" id="return">Translate!</button>
 			</div>
 		</div>
 	</div>
 	</div>
 	<div class="row">
 		<div class="col">
-			<div class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
+			<div
+				class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
 			</div>
 		</div>
-	</div>
 	</div>
 	</div>
 	<!-- Weather Update - Thatiana-->
@@ -384,7 +403,7 @@
 			</div>
 			<div class="weather-info">
 				<div class="weather-input"><input class="form" id="weatherApp" type="text" placeholder="City">
-					<div class="button-weather"> <button class="btn btn-info" id="weatherButton">Weather
+					<div class="button-weather"> <button class="btn btn-warning" id="weatherButton">Weather
 							Update</button></div>
 				</div>
 

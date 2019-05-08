@@ -262,7 +262,7 @@ section
 }
 .home_text_large
 {
-	font-size: 165px;
+	font-size: 150px;
 	font-weight: 900;
 	color: #fdaa27;
 	opacity: 0.7;
@@ -1020,7 +1020,7 @@ section
 }
 .section_title
 {
-	padding-top: 111px;
+	padding-top: 50px;
 	line-height: 1.1;
 }
 .section_title h2
