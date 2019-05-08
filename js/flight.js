@@ -26,14 +26,15 @@ function runQuery(flightStats, queryURL) {
       for (var i = 0; i < flightData.flightStatuses.length; i++) {
 
         var currentTime = moment(flightData.flightStatuses[i].departureDate.dateLocal).format('MMMM Do YYYY, h:mm a');
-
+        var arrivalTime = moment(flightData.flightStatuses[i].arrivalDate.dateLocal).format('MMMM Do YYYY, h:mm a');
+        
         // console.log(flightData.flightStatuses[i].flightNumber);
         // console.log(flightData.flightStatuses[i].departureAirportFsCode);
         // console.log(flightData.flightStatuses[i].arrivalAirportFsCode);
         // console.log(flightData.flightStatuses[i].departureDate.dateLocal);
         // console.log(flightData.flightStatuses[i].airportResources.arrivalTerminal);
         // console.log(flightData.flightStatuses[i].airportResources.arrivalGate);
-        // console.log(flightData.flightStatuses);   
+        console.log(flightData.flightStatuses);   
 
         // Send to HTML Here: 
         var newRow = $("<tr>").append(
@@ -41,6 +42,7 @@ function runQuery(flightStats, queryURL) {
           $("<td>").text(flightData.flightStatuses[i].departureAirportFsCode),
           $("<td>").text(flightData.flightStatuses[i].arrivalAirportFsCode),
           $("<td>").text(currentTime),
+          $("<td>").text(arrivalTime),
           $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalTerminal),
           $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalGate),
         )
