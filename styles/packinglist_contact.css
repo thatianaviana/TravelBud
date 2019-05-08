@@ -1,9 +1,10 @@
 h1 {
    text-align: center;
-   padding-top: 5px 0px;
-   font-size: 40px;
-   margin: 0px;
-   color: black;
+   padding: 50px 0;
+   font-size: 30px;
+   margin: 0;
+   font-weight:200;
+   color: #445544;
 }
 
 #packingBud {
@@ -25,28 +26,4 @@ h1 {
    -moz-border-radius:5px;
    border-radius:5px;
 
-}
-
-#items {
-   text-align: center;
-   font-size: 50px;
-   
-}
-
-.packingBudInput{
-   padding-left: 250px;
-}
-
-.checkbox{
-   margin-right: 10px;
-   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.contactText{
-   color: white;
-}
-.add-to-list, #submitButton {
-   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
