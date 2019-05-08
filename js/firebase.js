@@ -1,5 +1,25 @@
+    //Login Code
+    document.addEventListener("DOMContentLoaded", event => {
+        const app = firebase.app();
+    });
     
-    // Packing List code
+    function googleLogin(){
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth().signInWithPopup(provider)
+
+            .then(result => {
+                const user = result.user;
+                document.write('Hello ${user.displayName}');
+                console.log(user)
+            })
+            .catch(console.log)
+    }
+   
+   
+   
+   
+   // Packing List code
 function renderPackingList(list){
 
     // Empties out the HTML
@@ -19,8 +39,7 @@ function renderPackingList(list){
         itemClose.attr("data-packing-item", i);
 
         // Making the button a checkbox and giving it a check mark
-        itemClose.addClass("checkbox");
-        itemClose.text("✓");
+        itemClose.addClass("checkbox far fa-check-circle btn btn-warning");
 
         // Append the button to the list item
         packingListItems = packingListItems.prepend(itemClose);
@@ -30,7 +49,7 @@ function renderPackingList(list){
     }
 }
 
-    $('#add-to-list').on("click", function(event){
+    $('.add-to-list').on("click", function(event){
         event.preventDefault();
 
         // Get the value of the packing item from the textbox and store it as a variable
@@ -96,27 +115,31 @@ $(document).on("click", ".checkbox", function(){
       };
       firebase.initializeApp(config);
 
-// refrencing the database
+// Created a variable that I can use to referencce the firebase database
       var database = firebase.database();
 
-// When clicking submit on the contact us section
+// When clicking submit on the contact us Submit Button initiate the function to store the data to Firebase
       $("#submitButton").on("click", function(event){
 
-
+        // Variables for the different elements that are being inputted on the contact us section
         var nameInput = $("#nameArea").val().trim();
         var emailInput = $("#emailArea").val().trim();
         var commentInput = $("#textArea").val().trim();
 
+        // Pushing the information collected from the input sections into the firebase database
+        // in ref if it is contact add contact to what database you are referencing .ref(contact)
         database.ref().push({
             name: nameInput,
             email: emailInput,
             comment: commentInput
 
         })
+//need to clear out contact form once the data has been submitted
+        $("#nameArea").val("");
+        $("#emailArea").val("");
+        $("#textArea").val("");
 
     });
-
-    
 
    
     
