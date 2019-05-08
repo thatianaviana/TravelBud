@@ -34,7 +34,7 @@ function runQuery(flightStats, queryURL) {
         // console.log(flightData.flightStatuses[i].departureDate.dateLocal);
         // console.log(flightData.flightStatuses[i].airportResources.arrivalTerminal);
         // console.log(flightData.flightStatuses[i].airportResources.arrivalGate);
-        console.log(flightData.flightStatuses);   
+        //console.log(flightData.flightStatuses);   
 
         // Send to HTML Here: 
         var newRow = $("<tr>").append(
