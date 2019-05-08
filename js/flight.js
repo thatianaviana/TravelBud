@@ -50,11 +50,11 @@ function runQuery(flightStats, queryURL) {
     },
     error: function (err) {
       console.log('****ERROR***');
-      $('#tbody').empty();
-      var newRow = $("<tr>").append(
-        $("<td>").text("No Flight Information Available"),
-      )
-        $("#tbody").append(newRow);
+      // $('#tbody').empty();
+      // var newRow = $("<tr>").append(
+      //   $("<td>").text("No Flight Information Available"),
+      // )
+      //   $("#tbody").append(newRow);
     }
   })
 };
