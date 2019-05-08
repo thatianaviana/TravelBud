@@ -161,6 +161,7 @@ button {
     text-align: center;
     margin-top: 20px;
     margin-left: 515px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 }
@@ -172,6 +173,8 @@ button {
     height: 175px;
     margin: auto;
 }
+
+
 /* flight Section Styles */
 
 .find_item:nth-child(3) {
@@ -224,3 +227,4 @@ button {
     /* background: #55ACEE; */
     color: white;
   }
+  
