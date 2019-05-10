@@ -22,6 +22,10 @@ function convertCurrency(amount, fromCurrency, toCurrency, callback) {
 
     //could also use ajax call
     $.get(url, function (response) {
+        // xhrFields: {
+        //     withCredentials: true
+        // },
+        // $.support.cors = true;
         //we get an object response back - 
 
        console.log(response);
@@ -45,3 +49,5 @@ function convertCurrency(amount, fromCurrency, toCurrency, callback) {
 
     })
 }
+
+$.ajax 

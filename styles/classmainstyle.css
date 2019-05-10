@@ -174,9 +174,6 @@ button {
     margin: auto;
 }
 
-#translator {
-    background-image: url("images/gradient_neutral.png");
-  }
 
 
 /* flight Section Styles */
@@ -216,19 +213,11 @@ button {
   }
   
   /* Facebook */
-.fa-facebook {
+.fab {
     /* background: #3B5998; */
     color: white;
+    padding-left: 20px;
   }
   
-  /* Twitter */
-  .fa-twitter {
-    /* background: #55ACEE; */
-    color: white;
-  }
-   /* Instagram */
-   .fa-instagram {
-    /* background: #55ACEE; */
-    color: white;
-  }
+
   
