@@ -13,13 +13,14 @@
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 	<link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
-	<link rel="stylesheet" href="styles/classmainstyle.css">
 	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 	<!-- packing list style sheet PCV -->
 	<link rel="stylesheet" href="styles/packinglist_contact.css">
+	<link rel="stylesheet" href="styles/classmainstyle.css">
+	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
 
 
 	<!-- Firebase reference PCV-->
@@ -45,7 +46,7 @@
 				<a href="#" class="fab fa-facebook-f" style="font-size:40px"></a>
 				<a href="#" class="fab fa-instagram" style="font-size: 40px"></a>
 				<a href="#" class="fab fa-twitter" style="font-size:40px"></a>
-			
+
 			</div>
 		</div>
 
@@ -285,7 +286,9 @@
 						</td>
 					</tr>
 				</table>
-				<button class="btn btn-warning" id="searchButton">Convert Your Money</button>
+				<div class="currency-button">
+					<button class="btn btn-warning" id="searchButton">Convert Your Money</button>
+				</div>
 			</div>
 
 		</div>
@@ -377,7 +380,7 @@
 
 					<br>
 
-					<div>
+					<div class="translator-button">
 						<button type="button" class="btn btn-warning" id="return">Translate</button>
 					</div>
 
@@ -423,85 +426,87 @@
 		</div>
 	</div>
 	<!-- Packing List - Paula -->
- <!-- Special -->
- <div id="packingBud" class="container">
-	<form id="packingList">
-	<h1>Packing List</h1>
-	<br>
-	<div class="col packingBudInput">
-		<span id= "packing-item">Add Item: <input id="to-bring" type="text">
-		<button class="add-to-list btn btn-warning" value="add item" type="submit">Submit</button>
+	<!-- Special -->
+	<div id="packingBud" class="container">
+		<form id="packingList">
+			<h2>Packing List</h2>
+			<br>
+			<div class="col packingBudInput">
+				<span id="packing-item">Add Item: <input id="to-bring" type="text">
+					<button class="add-to-list btn btn-warning" value="add item" type="submit">Submit</button>
+			</div>
+			<br>
+			<div id="items"></div>
+		</form>
 	</div>
-	<br>
-		<div id="items"></div>    
-	</form>
-</div>
-<!-- <button class="btn btn-warning"onclick="googleLogin()">
+	<!-- <button class="btn btn-warning"onclick="googleLogin()">
 		Login With Google
 </button> -->
-<!-- Newsletter -->
-<div class="newsletter">
-	<!-- Image by https://unsplash.com/@garciasaldana_ -->
-	<div class="newsletter_background" style="background-image:url(images/find.jpg)"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 offset-lg-1">
-				<div class="newsletter_content">
-					<div class="newsletter_title text-center">Contact Us</div>
-					<div class="newsletter_form_container">
-						<form>
-							<div class="form-group">
-								<label class="contactText" for="name">Name:</label>
-								<input type="text" class="form-control" id="nameArea" placeholder="John Smith">
-							</div>
-							<div class="form-group">
-								<label class="contactText" for="email">Email:</label>
-								<input type="email" class="form-control" id="emailArea" placeholder="jsmith@example.com">
-							</div>
-							<div class="form-group">
-								<label class="contactText" for="textArea">Comment:</label>
-								<textarea class="form-control" id="textArea" rows="3"></textarea>
-							</div>
-							<button type="submit" id="submitButton" class="btn btn-warning">Submit</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-<!-- Footer -->
-<footer class="footer">
-	<div class="container">
-		<div class="row">
-			<!-- Footer Column -->
-			<div class="col-lg-12 footer_col">
-				<div class="footer_about">
-					<!-- Logo -->
-					<div class="logo_container">
-						<div class="logo">
-							<div>TravelBud</div>
-							<div>by Pan!c at the Deezcode</div>
-							<div class="logo_image"><img src="images/logo.png" alt=""></div>
+	<!-- Newsletter -->
+	<div class="newsletter">
+		<!-- Image by https://unsplash.com/@garciasaldana_ -->
+		<div class="newsletter_background" style="background-image:url(images/find.jpg)"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="newsletter_content">
+						<div class="newsletter_title text-center">Contact Us</div>
+						<div class="newsletter_form_container">
+							<form>
+								<div class="form-group">
+									<label class="contactText" for="name">Name:</label>
+									<input type="text" class="form-control" id="nameArea" placeholder="John Smith">
+								</div>
+								<div class="form-group">
+									<label class="contactText" for="email">Email:</label>
+									<input type="email" class="form-control" id="emailArea"
+										placeholder="jsmith@example.com">
+								</div>
+								<div class="form-group">
+									<label class="contactText" for="textArea">Comment:</label>
+									<textarea class="form-control" id="textArea" rows="3"></textarea>
+								</div>
+								<button type="submit" id="submitButton" class="btn btn-warning">Submit</button>
+							</form>
 						</div>
 					</div>
-					<div class="footer_about_text">
-						We are a group of four individuals with a passion for travel. We came together to create an app that can be a traveler's one-stop shop for all travel needs. 
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					<br>
-					Copyright &copy;
-					<script>document.write(new Date().getFullYear());</script> All rights reserved |
-					This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
-					<a href="https://colorlib.com" target="_blank">Colorlib</a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</footer>
+	</div>
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- Footer Column -->
+				<div class="col-lg-12 footer_col">
+					<div class="footer_about">
+						<!-- Logo -->
+						<div class="logo_container">
+							<div class="logo">
+								<div>TravelBud</div>
+								<div>by Pan!c at the Deezcode</div>
+								<div class="logo_image"><img src="images/logo.png" alt=""></div>
+							</div>
+						</div>
+						<div class="footer_about_text">
+							We are a group of four individuals with a passion for travel. We came together to create an
+							app that can be a traveler's one-stop shop for all travel needs.
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							<br>
+							Copyright &copy;
+							<script>document.write(new Date().getFullYear());</script> All rights reserved |
+							This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
+							<a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="styles/bootstrap4/popper.js"></script>

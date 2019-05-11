@@ -333,6 +333,9 @@
 		margin-right: auto;
 		margin-top: 15px;
 	}
+	#text-box1, #text-box2 {
+		width: 100%;
+	}
 }
 
 /************

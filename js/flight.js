@@ -14,6 +14,7 @@ var queryURL = baseURL + carrier + "/" + flightNum + "/arr/" + newDate + appId +
 // Functions 
 function runQuery(flightStats, queryURL) {
   //$.support.cors = true;
+  console.log(queryURL)
   $.ajax({
     url: queryURL,
     method: "GET",
