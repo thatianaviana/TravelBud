@@ -42,9 +42,7 @@ function runQuery(flightStats, queryURL) {
           $("<td>").text(flightData.flightStatuses[i].departureAirportFsCode),
           $("<td>").text(flightData.flightStatuses[i].arrivalAirportFsCode),
           $("<td>").text(departureTime),
-          $("<td>").text(flightData.flightStatuses[i].delays.departureGateDelayMinutes),
           $("<td>").text(arrivalTime),
-          $("<td>").text(flightData.flightStatuses[i].delays.arrivalGateDelayMinutes),
           $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalTerminal),
           $("<td>").text(flightData.flightStatuses[i].airportResources.arrivalGate),
           
